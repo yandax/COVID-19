@@ -1,40 +1,86 @@
 <html>
+    
     <head>
+        
         <title>COVID-19 Dashboard</title>
         
-        <!-- internal -->
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        
         <style>
-            body {
-                background-color: #364061;
-                font-family: sans-serif;
+            nav ul li:hover {
+                background-color: orange;
+            }
+            .nav-wrapper {
+                padding-left: 20px;
+            }
+            .nav-wrapper :hover {
                 color: black;
             }
-            
-            .title {
-                text-align: center;
-                color: whitesmoke;
-                margin-top: 20px;
-                font-family: sans-serif;
-                font-size: 50px;
-            }
-            
-            .container {
-                text-align: center;
-                margin: 30px;
-                background-color: hotpink;
-                color: white;
-                padding: 30px;
+            footer ul li a:hover {
+                color: black;
             }
         </style>
+        
     </head>
     
-    <body class = "body">
+    <body>
+        
+        <nav>
+            <div class="nav-wrapper teal">
+                <a href="#" class="brand-logo"><i class="large material-icons">home</i></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="sass.html">Sass</a></li>
+                    <li><a href="badges.html">Components</a></li>
+                    <li><a href="collapsible.html">JavaScript</a></li>
+                </ul>
+            </div>
+        </nav>
+        
+        <div class="row">
+            <div class="col s12 m3 l3 red center">List</div>
+            <div class="col s12 m6 l6 green center">Map</div>
+            <div class="col s12 m3 l3 purple center">Graph</div>
+        </div>
+
         <h1 class="title">COVID-19 Dashboard</h1>
-        <p class="container">This software will provide timely info and updates about the pandemic</p>
-        <a href="https://github.com/yandax/COVID-19" target="_blank" style="color: #DFDFEF;">COVID-19</a>
+        <p>This software will provide timely info and updates about the pandemic</p>
+        <a href="https://github.com/yandax/COVID-19" target="_blank">COVID-19</a>
         <br><br>
         <img src = "https://1.bp.blogspot.com/-SWB7YT5ZLYw/XuHI43iUFpI/AAAAAAAAD8k/ioBFzP38qPI4X8eZFgKdI83n1OhAKC9-wCLcBGAsYHQ/s400/letterguesserq.png">
-        <!-- inline -->
-        <img src = letterguesserq.png style="width:300px; padding:50px">
+        <img src = letterguesserq.png>
+        
+        <footer class="page-footer teal">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Footer Content</h5>
+                        <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                    </div>
+                    <div class="col l4 offset-l2 s12">
+                        <h5 class="white-text">Links</h5>
+                        <ul>
+                            <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                            <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                            <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                            <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    © 2020 Copyright Text
+                    <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                </div>
+            </div>
+        </footer>
+        
     </body>
+    
 </html>
