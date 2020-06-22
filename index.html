@@ -48,7 +48,7 @@
             <a href="https://github.com/yandax/COVID-19" target="_blank">COVID-19</a>
         </center>
         <br>
-        
+
         <div class="row">
             <div class="col s12 m6 offset-m3">
                 <div class="card blue-grey darken-1">
@@ -107,7 +107,7 @@
                 <img src = letterguesserq.png>
             </div>
 
-            <div class="col s12 m3 l3 purple center">
+            <div class="col s12 m3 l3 purple center" id="mylist">
                 <p>This software will provide timely info and updates about the pandemic</p>
                 <a href="https://github.com/yandax/COVID-19" target="_blank">COVID-19</a>
             </div>
@@ -141,4 +141,29 @@
 
     </body>
 
+    <script>
+        
+        function makelist() {
+            data = [{pname:"NYC", cname:"USA", conf:218000},
+                   {pname:"Moscow", cname:"Russia", conf:212000},
+                   {pname:"Sao Paulo", cname:"Brazil", conf:211000}];
+            
+            mylist = document.getElementById("mylist");
+            
+            myhtml = "<ul class=\"collection\">"
+            for(i=0; i<data.length; i++) {
+                myhtml += "<li class=\"collection-item avatar\">";
+                myhtml += "<i class=\"material-icons circle\">folder</i>";
+                myhtml += "<b>" + data[i]["pname"] + "</b><br>";
+                myhtml += data[i]["conf"] + "</li>";
+            }
+            myhtml += "</ul>";
+            
+            mylist.innerHTML = myhtml;
+        }
+        
+        makelist();
+        
+    </script>
+    
 </html>
