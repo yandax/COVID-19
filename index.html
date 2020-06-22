@@ -25,6 +25,25 @@
             footer ul li a:hover {
                 color: black;
             }
+            table.highlight>tbody>tr:hover {
+                background-color: #4db6ac66;
+            }
+            tbody {
+                display:block;
+                height:500px;
+                overflow:auto;
+            }
+            thead, tbody tr {
+                display:table;
+                width:100%;
+                table-layout:fixed;
+            }
+            thead {
+                width: calc( 100% - 1em )
+            }
+            table {
+                width:100%;
+            }
         </style>
 
     </head>
@@ -113,6 +132,23 @@
             </div>
         </div>
 
+        <div class="row">
+            <div class="col s12 m12 l12 center">
+                <table class="highlight striped centered responsive-table">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Location</th>
+                            <th>Country</th>
+                            <th>Confirmed Cases</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="fulllist"></tbody>
+                </table>
+            </div>
+        </div>
+
         <footer class="page-footer teal">
             <div class="container">
                 <div class="row">
@@ -141,29 +177,48 @@
 
     </body>
 
+    <script src="06-15-2020.js"></script>
+
     <script>
-        
+
         function makelist() {
-            data = [{pname:"NYC", cname:"USA", conf:218000},
-                   {pname:"Moscow", cname:"Russia", conf:212000},
-                   {pname:"Sao Paulo", cname:"Brazil", conf:211000}];
-            
+
             mylist = document.getElementById("mylist");
-            
+
             myhtml = "<ul class=\"collection\">"
-            for(i=0; i<data.length; i++) {
+            for(i=0; i<5; i++) {
                 myhtml += "<li class=\"collection-item avatar\">";
-                myhtml += "<i class=\"material-icons circle\">folder</i>";
-                myhtml += "<b>" + data[i]["pname"] + "</b><br>";
+                myhtml += "<i class=\"material-icons circle red\">warning</i><b>";
+                if(data[i]["pname"]!="") {
+                    myhtml += data[i]["pname"] + ", ";
+                }
+                myhtml += data[i]["cname"] + "</b><br>";
                 myhtml += data[i]["conf"] + "</li>";
             }
             myhtml += "</ul>";
-            
-            mylist.innerHTML = myhtml;
+
+            mylist.innerHTML += myhtml;
         }
-        
+
+        function fulllist() {
+
+            fulllist = document.getElementById("fulllist");
+
+            myhtml = "";
+            for(i=0; i<100; i++) {
+                myhtml += "<tr><td>" + (i+1) + "</td>"
+                myhtml += "<td>" + data[i]["pname"] + "</td>"
+                myhtml += "<td>" + data[i]["cname"] + "</td>"
+                myhtml += "<td>" + data[i]["conf"] + "</td></tr>";
+            }
+
+            fulllist.innerHTML += myhtml;
+
+        }
+
         makelist();
-        
+        fulllist();
+
     </script>
-    
+
 </html>
