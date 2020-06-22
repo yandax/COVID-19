@@ -57,9 +57,9 @@
             <div class="nav-wrapper teal">
                 <a href="#" class="brand-logo"><i class="large material-icons">home</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="sass.html">Sass</a></li>
-                    <li><a href="badges.html">Components</a></li>
-                    <li><a href="collapsible.html">JavaScript</a></li>
+                    <li><a href="https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_daily_reports">JHU Data</a></li>
+                    <li><a href="https://materializecss.com/">Materialize CSS</a></li>
+                    <li class="github"><a href="https://github.com/yandax/COVID-19">GitHub&nbsp;&nbsp;<img src="GitHub-Mark-120px-plus.png" width="20" style="vertical-align: middle;"></a></li>
                 </ul>
             </div>
         </nav>
@@ -193,7 +193,7 @@
                     myhtml += data[i]["pname"] + ", ";
                 }
                 myhtml += data[i]["cname"] + "</b><br>";
-                myhtml += data[i]["conf"] + "</li>";
+                myhtml += data[i]["conf"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</li>";
             }
             myhtml += "</ul>";
 
@@ -209,24 +209,24 @@
                 myhtml += "<tr><td>" + (i+1) + "</td>"
                 myhtml += "<td>" + data[i]["pname"] + "</td>"
                 myhtml += "<td>" + data[i]["cname"] + "</td>"
-                myhtml += "<td>" + data[i]["conf"] + "</td></tr>";
+                myhtml += "<td>" + data[i]["conf"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</td></tr>";
             }
 
             fulllist.innerHTML += myhtml;
 
         }
-        
+
         function global(){
-            
+
             global = document.getElementById("global");
-            
+
             total = 0;
             for(i=0; i<data.length; i++){
                 total += data[i]["conf"];
             }
-            
+
             global.innerHTML = "<h3><b>" + total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</b></h3>";
-            
+
         }
 
         makelist();
