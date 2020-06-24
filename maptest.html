@@ -1,0 +1,57 @@
+<html>
+
+    <head>
+
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+              integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+              crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+                integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+                crossorigin=""></script>
+
+    </head>
+
+    <body>
+
+        <div id="map1" style="height: 500px;"></div>
+
+        <br><br>
+
+        <div id="map2" style="height: 500px;"></div>
+
+        <br><br>
+
+        <div id="map3" style="height: 500px;"></div>
+
+    </body>
+
+    <script>
+
+        var map1 = L.map('map1').setView([40,0], 2);
+
+        L.tileLayer('https://tile.thunderforest.com/neighbourhood/{z}/{x}/{y}.png?apikey=2275b3ec471842e4bc945df12826b8cd', {
+            attribution: 'Maps &copy; <a href="https://www.thunderforest.com/">Thunderforest</a>, Data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+        }).addTo(map1);
+
+
+        var map2 = L.map('map2').setView([40,0], 2);
+
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoieWFuZGF4IiwiYSI6ImNrYnNhb29zbjAxcmgycm83bjhkaHMyb28ifQ.nn9Nx2VV4Mo1GcSq1gPueg', {
+            maxZoom: 18,
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+            '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            id: 'mapbox/streets-v11',
+            tileSize: 512,
+            zoomOffset: -1
+        }).addTo(map2);
+
+        var map3 = L.map('map3').setView([40,0], 2);
+
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}.png', {
+            attribution: 'Maps and Data &copy; <a href="https://carto.com/help/building-maps/basemap-list/">CARTO</a>',
+        }).addTo(map3);
+
+    </script>
+
+</html>

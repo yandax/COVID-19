@@ -12,11 +12,19 @@
 
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+              integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+              crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+                integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+                crossorigin=""></script>
+
         <style>
             nav ul li:hover {
                 background-color: orange;
             }
             .nav-wrapper {
+                z-index: 1000000;
                 padding-left: 20px;
             }
             .nav-wrapper :hover {
@@ -47,22 +55,26 @@
             .global {
                 color: #69f0ae;
             }
+            .leaflet-container {
+                z-index: 10;
+            }
         </style>
 
     </head>
 
     <body>
-
-        <nav>
-            <div class="nav-wrapper teal">
-                <a href="#" class="brand-logo"><i class="large material-icons">home</i></a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_daily_reports">JHU Data</a></li>
-                    <li><a href="https://materializecss.com/">Materialize CSS</a></li>
-                    <li class="github"><a href="https://github.com/yandax/COVID-19">GitHub&nbsp;&nbsp;<img src="GitHub-Mark-120px-plus.png" width="20" style="vertical-align: middle;"></a></li>
-                </ul>
-            </div>
-        </nav>
+        <div class="navbar-fixed">
+            <nav>
+                <div class="nav-wrapper teal">
+                    <a href="#" class="brand-logo"><i class="large material-icons">home</i></a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_daily_reports">JHU Data</a></li>
+                        <li><a href="https://materializecss.com/">Materialize CSS</a></li>
+                        <li class="github"><a href="https://github.com/yandax/COVID-19">GitHub&nbsp;&nbsp;<img src="GitHub-Mark-120px-plus.png" width="20" style="vertical-align: middle;"></a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
 
         <h1 class="col l12 center">COVID-19 Dashboard</h1>
         <center>
@@ -72,7 +84,7 @@
         <br>
 
         <div class="row">
-            <div class="col s12 m3 l3 red center">
+            <div class="col s12 m3 l3 center">
                 <ul class="collection">
                     <li class="collection-item avatar">
                         <img src="letterguesserq.png" alt="" class="circle">
@@ -109,13 +121,12 @@
                 </ul>
             </div>
 
-            <div class="col s12 m6 l6 green center">
-                Map goes here
+            <div class="col s12 m6 l6 center">
+                <div id="map" style="height: 500px;"></div>
             </div>
 
-            <div class="col s12 m3 l3 purple center" id="mylist">
-                <p>This software will provide timely info and updates about the pandemic</p>
-                <a href="https://github.com/yandax/COVID-19" target="_blank">COVID-19</a>
+            <div class="col s12 m3 l3 center" id="mylist">
+                <h5 style="text-align: center;">Top 5 Confirmed</h5><br>
             </div>
         </div>
 
@@ -139,7 +150,6 @@
                         <tr>
                             <th>Rank</th>
                             <th>Location</th>
-                            <th>Country</th>
                             <th>Confirmed Cases</th>
                         </tr>
                     </thead>
@@ -177,7 +187,7 @@
 
     </body>
 
-    <script src="06-15-2020.js"></script>
+    <script src="06-22-2020.js"></script>
 
     <script>
 
@@ -189,10 +199,7 @@
             for(i=0; i<5; i++) {
                 myhtml += "<li class=\"collection-item avatar\">";
                 myhtml += "<i class=\"material-icons circle red\">warning</i><b>";
-                if(data[i]["pname"]!="") {
-                    myhtml += data[i]["pname"] + ", ";
-                }
-                myhtml += data[i]["cname"] + "</b><br>";
+                myhtml += data[i]["name"] + "</b><br>";
                 myhtml += data[i]["conf"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</li>";
             }
             myhtml += "</ul>";
@@ -207,8 +214,7 @@
             myhtml = "";
             for(i=0; i<100; i++) {
                 myhtml += "<tr><td>" + (i+1) + "</td>"
-                myhtml += "<td>" + data[i]["pname"] + "</td>"
-                myhtml += "<td>" + data[i]["cname"] + "</td>"
+                myhtml += "<td>" + data[i]["name"] + "</td>"
                 myhtml += "<td>" + data[i]["conf"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</td></tr>";
             }
 
@@ -232,6 +238,25 @@
         makelist();
         fulllist();
         global();
+
+        var map = L.map('map').setView([40,0], 2);
+
+        L.tileLayer('https://tile.thunderforest.com/neighbourhood/{z}/{x}/{y}.png?apikey=2275b3ec471842e4bc945df12826b8cd', {
+            attribution: 'Maps &copy; <a href="https://www.thunderforest.com/">Thunderforest</a>, Data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+        }).addTo(map);
+
+        function addmarkers() {
+            for(i=0; i<data.length; i++) {
+                var circle = L.circle([data[i]['lat'], data[i]['lon']], {
+                    color: 'red',
+                    fillColor: '#f03',
+                    fillOpacity: 0.5,
+                    radius: Math.sqrt(data[i]['conf']) * 1000
+                }).addTo(map);
+            }
+        }
+        
+        addmarkers();
 
     </script>
 
