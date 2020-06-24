@@ -193,7 +193,7 @@
             fulllist = document.getElementById("fulllist");
 
             myhtml = "";
-            for(i=0; i<100; i++) {
+            for(i=0; i<data.length; i++) {
                 myhtml += "<tr><td>" + (i+1) + "</td>";
                 myhtml += "<td>" + data[i]["name"] + "</td>";
                 myhtml += "<td>" + data[i]["conf"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</td>";
