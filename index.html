@@ -98,12 +98,8 @@
                 <h5 style="text-align: center;">Top 5 Confirmed</h5><br>
             </div>
 
-            <div class="col s12 m6 l6 center">
+            <div class="col s12 m9 l9 center">
                 <div id="map" style="height: 500px;"></div>
-            </div>
-
-            <div class="col s12 m3 l3 center">
-                
             </div>
         </div>
 
@@ -231,7 +227,7 @@
             }
 
             globaldeaths.innerHTML = "<h3><b>" + total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</b></h3>";
-            
+
             globalactive = document.getElementById("globalactive");
 
             total = 0;
@@ -240,7 +236,7 @@
             }
 
             globalactive.innerHTML = "<h3><b>" + total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</b></h3>";
-            
+
             globalrecovered = document.getElementById("globalrecovered");
 
             total = 0;
@@ -249,7 +245,7 @@
             }
 
             globalrecovered.innerHTML = "<h3><b>" + total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</b></h3>";
-            
+
         }
 
         makelist();
@@ -258,8 +254,8 @@
 
         var map = L.map('map').setView([40,0], 2);
 
-        L.tileLayer('https://tile.thunderforest.com/neighbourhood/{z}/{x}/{y}.png?apikey=2275b3ec471842e4bc945df12826b8cd', {
-            attribution: 'Maps &copy; <a href="https://www.thunderforest.com/">Thunderforest</a>, Data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: 'Maps and Data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
         }).addTo(map);
 
         function addmarkers() {
@@ -270,6 +266,13 @@
                     fillOpacity: 0.5,
                     radius: Math.sqrt(data[i]['conf']) * 1000
                 }).addTo(map);
+                circle.bindPopup(data[i]['name']+": "+data[i]['conf']);
+                circle.on('mouseover', function (e) {
+                    this.openPopup();
+                });
+                circle.on('mouseout', function (e) {
+                    this.closePopup();
+                });
             }
         }
 
