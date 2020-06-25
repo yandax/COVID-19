@@ -249,7 +249,7 @@
         fulllist();
         global();
 
-        var map = L.map('map').setView([40,0], 2);
+        var map = L.map('map').setView([20,0], 2);
 
         L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: 'Maps and Data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
@@ -258,10 +258,10 @@
         function addmarkers() {
             for(i=0; i<data.length; i++) {
                 var circle = L.circle([data[i]['lat'], data[i]['lon']], {
-                    color: 'red',
-                    fillColor: '#f03',
-                    fillOpacity: 0.5,
-                    radius: Math.sqrt(data[i]['conf']) * 1000
+                    color: '#ff003388',
+                    fillColor: '#ff0033',
+                    fillOpacity: 0.1,
+                    radius: Math.sqrt(data[i]['conf']) * 1500 * Math.abs(Math.cos(data[i]['lat']*Math.PI/180)) // Mercator scaling
                 }).addTo(map);
                 circle.bindPopup(data[i]['name']+": "+data[i]['conf']);
                 circle.on('mouseover', function (e) {
