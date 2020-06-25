@@ -4,6 +4,8 @@
 
         <title>COVID-19 Dashboard</title>
 
+        <script src="06-24-2020-country.js"></script>
+
         <!-- Compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
@@ -18,6 +20,12 @@
         <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
                 integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
                 crossorigin=""></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js" integrity="sha256-nZaxPHA2uAaquixjSDX19TmIlbRNCOrf5HO1oHl5p70=" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.css" integrity="sha256-IvM9nJf/b5l2RoebiFno92E5ONttVyaEEsdemDC6iQA=" crossorigin="anonymous" />
 
         <style>
             nav ul li:hover {
@@ -54,18 +62,41 @@
             }
             .globalcases {
                 color: #f8f540;
+                display: inline;
+                font-weight: bold;
             }
             .globaldeaths {
                 color: #f65164;
+                display: inline;
+                font-weight: bold;
             }
             .globalactive {
                 color: #ff9d00;
+                display: inline;
+                font-weight: bold;
             }
             .globalrecovered {
-                color: #449be2;
+                color: #65dd9b;
+                display: inline;
+                font-weight: bold;
             }
             .leaflet-container {
                 z-index: 10;
+            }
+            .leaflet-popup-content-wrapper {
+                background-color: #546e7a;
+            }
+            .leaflet-popup-tip {
+                background-color: #546e7a;
+            }
+            .flag {
+                width: 70px;
+                position: absolute;
+                overflow: hidden;
+                left: 15px;
+                border: 1px solid #021a40;
+                display: inline-block;
+                top: 15px;
             }
         </style>
 
@@ -99,6 +130,16 @@
                 <div id="map" style="height: 500px;"></div>
             </div>
         </div>
+
+        <!--
+<div class="row">
+<div class="col s12 m6 l6 center">
+<div>
+<canvas id="chartjs-2"></canvas>
+</div>
+</div>
+</div>
+-->
 
         <div class="row">
             <div class="col l3">
@@ -144,31 +185,28 @@
             <div class="container">
                 <div class="row">
                     <div class="col l6 s12">
-                        <h5 class="white-text">Footer Content</h5>
-                        <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                        <h5 class="white-text">COVID-19 Dashbord</h5>
+                        <p class="grey-text text-lighten-4">This website is intended to be a dashboard to track COVID-19 statistics across the world. Data is updated roughly every day.</p>
                     </div>
                     <div class="col l4 offset-l2 s12">
                         <h5 class="white-text">Links</h5>
                         <ul>
-                            <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                            <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                            <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                            <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                            <li><a class="grey-text text-lighten-3" href="index.html">All Data</a></li>
+                            <li><a class="grey-text text-lighten-3" href="countries.html">Countries</a></li>
+                            <li><a class="grey-text text-lighten-3" href="https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_daily_reports">JHU Data</a></li>
+                            <li><a class="grey-text text-lighten-3" href="https://github.com/yandax/COVID-19">GitHub</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="footer-copyright">
                 <div class="container">
-                    © 2020 Copyright Text
-                    <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                    © 2020 Copyright Daniel Yang
                 </div>
             </div>
         </footer>
 
     </body>
-
-    <script src="06-24-2020-country.js"></script>
 
     <script>
 
@@ -179,8 +217,12 @@
             myhtml = "<ul class=\"collection\">"
             for(i=0; i<5; i++) {
                 myhtml += "<li class=\"collection-item avatar\">";
-                myhtml += "<i class=\"material-icons circle red\">warning</i><b>";
-                myhtml += data[i]["name"] + "</b><br>";
+                if(data[i]["name"] == "Taiwan*") {
+                    myhtml += "<img src=\"w2560/Taiwan.png\" class='flag'>";
+                }else {
+                    myhtml += "<img src=\"w2560/" + data[i]['name'] + ".png\" class='flag'>";
+                }
+                myhtml += "<b>" + data[i]["name"] + "</b><br>";
                 myhtml += data[i]["conf"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</li>";
             }
             myhtml += "</ul>";
@@ -265,7 +307,7 @@
                     "fillOpacity": 0.5,
                     "radius": Math.sqrt(data[i]['conf']) * 1200 * Math.abs(Math.cos(data[i]['lat']*Math.PI/180)) // Mercator scaling
                 }).addTo(map);
-                circle.bindPopup(data[i]['name']+": "+data[i]['conf']);
+                circle.bindPopup("<center><td><img src=\"w2560/" + data[i]['name'] + ".png\" width='50px'></td></center><center><h6 style='color: white; font-weight: bold;'>" + data[i]['name'] + "</h6></center><p style='display: inline; color: white;'>Confirmed:&nbsp;&nbsp;&nbsp;&nbsp;</p><p class='globalcases'>" + data[i]['conf'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</p><br><p style='display: inline; color: white;'>Deceased:&nbsp;&nbsp;&nbsp;&nbsp;</p><p class='globaldeaths'>" + data[i]['dead'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</p><br><p style='display: inline; color: white;'>Active:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p><p class='globalactive'>" + data[i]['active'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</p><br><p style='display: inline; color: white;'>Recovered:&nbsp;&nbsp;&nbsp;</p><p class='globalrecovered'>" + data[i]['recv'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</p>");
                 circle.on('mouseover', function (e) {
                     this.openPopup();
                 });
@@ -276,6 +318,57 @@
         }
 
         addmarkers();
+
+        function creategraph() {
+            labels = []
+            for(i=0; i<5; i++) {
+                labels.push(data[i]['name'])
+            }
+            cases = []
+            for(i=0; i<5; i++) {
+                cases.push(data[i]['conf'])
+            }
+
+            new Chart(document.getElementById("chartjs-2"),{
+                "type":"horizontalBar",
+                "data":{
+                    "labels": labels,
+                    "datasets":[{"label": "Confirmed",
+                                 "data": cases,
+                                 "fill": false,
+                                 "backgroundColor":["rgba(255, 99, 132, 0.2)",
+                                                    "rgba(255, 159, 64, 0.2)",
+                                                    "rgba(255, 205, 86, 0.2)",
+                                                    "rgba(75, 192, 192, 0.2)",
+                                                    "rgba(54, 162, 235, 0.2)",
+                                                    "rgba(153, 102, 255, 0.2)",
+                                                    "rgba(201, 203, 207, 0.2)"],
+                                 "borderColor":["rgb(255, 99, 132)",
+                                                "rgb(255, 159, 64)",
+                                                "rgb(255, 205, 86)",
+                                                "rgb(75, 192, 192)",
+                                                "rgb(54, 162, 235)",
+                                                "rgb(153, 102, 255)",
+                                                "rgb(201, 203, 207)"],
+                                 "borderWidth":1
+                                }]
+                },
+                "options":{
+                    legend: {
+                        display: false
+                    },
+                    title: {
+                        display: true,
+                        text: 'Top 5'
+                    },
+                    "scales":{
+                        "xAxes":[{"ticks":{"beginAtZero":true}}]
+                    }
+                }
+            });
+        }
+
+        creategraph();
 
     </script>
 
