@@ -1,0 +1,502 @@
+<html>
+
+    <head>
+
+        <title>COVID-19 Dashboard</title>
+
+        <script src="06-25-2020-country.js" id="countrydata"></script>
+
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+              integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+              crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+                integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+                crossorigin=""></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js" integrity="sha256-nZaxPHA2uAaquixjSDX19TmIlbRNCOrf5HO1oHl5p70=" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.css" integrity="sha256-IvM9nJf/b5l2RoebiFno92E5ONttVyaEEsdemDC6iQA=" crossorigin="anonymous" />
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.5.0/nouislider.js" integrity="sha256-GJQSXJfgVhSPXeWECXzpWPSsx2vq/KLxFXeSEMj/Lj4=" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.5.0/nouislider.css" integrity="sha256-xzYAwPy/i+7E45IMv0RS2rU+FQZfYajQvAYv+g2uT6A=" crossorigin="anonymous" />
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/wnumb/1.2.0/wNumb.js" integrity="sha256-mw9OjBQTfVVML6jHH7Ht1lzVkvxByltFHiPNNyaRX4U=" crossorigin="anonymous"></script>
+
+        <style>
+            nav ul li:hover {
+                background-color: orange;
+            }
+            .nav-wrapper {
+                z-index: 1000000;
+                padding-left: 20px;
+            }
+            .nav-wrapper :hover {
+                color: black;
+            }
+            footer ul li a:hover {
+                color: black;
+            }
+            table.highlight>tbody>tr:hover {
+                background-color: #4db6ac66;
+            }
+            tbody {
+                display: block;
+                height: 730px;
+                overflow: auto;
+            }
+            thead, tbody tr {
+                display: table;
+                width: 100%;
+                table-layout: fixed;
+            }
+            thead {
+                width: calc( 100% - 1em )
+            }
+            table {
+                width:100%;
+            }
+            .globalcases {
+                color: #f8f540;
+                display: inline;
+                font-weight: bold;
+            }
+            .globaldeaths {
+                color: #f65164;
+                display: inline;
+                font-weight: bold;
+            }
+            .globalactive {
+                color: #ff9d00;
+                display: inline;
+                font-weight: bold;
+            }
+            .globalrecovered {
+                color: #65dd9b;
+                display: inline;
+                font-weight: bold;
+            }
+            .leaflet-container {
+                z-index: 10;
+            }
+            .leaflet-popup-content-wrapper {
+                background-color: #546e7a;
+            }
+            .leaflet-popup-tip {
+                background-color: #546e7a;
+            }
+            .flag {
+                width: 70px;
+                position: absolute;
+                overflow: hidden;
+                left: 15px;
+                border: 1px solid #021a40;
+                display: inline-block;
+                top: 15px;
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <div class="navbar-fixed">
+            <nav>
+                <div class="nav-wrapper teal">
+                    <a href=index.html class="brand-logo"><i class="large material-icons">home</i></a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href=countries.html>Countries</a></li>
+                        <li><a href="https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_daily_reports">JHU Data</a></li>
+                        <li><a href="https://materializecss.com/">Materialize</a></li>
+                        <li><a href="https://leafletjs.com/">Leaflet</a></li>
+                        <li class="github"><a href="https://github.com/yandax/COVID-19">GitHub&nbsp;&nbsp;<img src="GitHub-Mark-120px-plus.png" width="20" style="vertical-align: middle;"></a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <h1 class="center">COVID-19 Dashboard - Timeline</h1>
+
+        <div class="row">
+            <div class="col s3 m3 l3 center">
+                <b><p class="example-val" id="event-start" style="font-size: 19; text-align: center"></p></b>
+            </div>
+
+
+            <div class="col s9 m9 l9 center">
+                <div class="timeline" style="padding-top: 25px; padding-right: 50px;">
+
+                    <div id="slider-date"></div><br>
+                    <script>
+                        function timestamp(str) {
+                            return new Date(str).getTime();
+                        }
+                    </script>			
+                    <script>
+                        var weekdays = [
+                            "Sunday", "Monday", "Tuesday",
+                            "Wednesday", "Thursday", "Friday",
+                            "Saturday"
+                        ];
+                        var months = [
+                            "January", "February", "March",
+                            "April", "May", "June", "July",
+                            "August", "September", "October",
+                            "November", "December"
+                        ];
+                        function nth(d) {
+                            if (d > 3 && d < 21) return 'th';
+                            switch (d % 10) {
+                                case 1:
+                                    return "st";
+                                case 2:
+                                    return "nd";
+                                case 3:
+                                    return "rd";
+                                default:
+                                    return "th";
+                            }
+                        }
+                        function formatDate(date) {
+                            return weekdays[date.getDay()] + ", " +
+                                date.getDate() + nth(date.getDate()) + " " +
+                                months[date.getMonth()] + " " +
+                                date.getFullYear();
+                        }
+                    </script>			
+                    <script>
+                        var dateSlider = document.getElementById('slider-date');
+                        noUiSlider.create(dateSlider, {
+                            range: {
+                                min: timestamp('2020-05-02'),
+                                max: timestamp('2020-06-26')
+                            },
+                            step: 24 * 60 * 60 * 1000,
+                            start: [timestamp('2021')],
+                            format: wNumb({
+                                decimals: 0
+                            })
+                        });
+                    </script>			
+                    <script>
+                        var dateValues = [
+                            document.getElementById('event-start'),
+                            document.getElementById('event-end')
+                        ];
+                        dateSlider.noUiSlider.on('update', function (values, handle) {
+                            dateValues[handle].innerHTML = formatDate(new Date(+values[handle]));
+                        });
+                    </script>	
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col s12 m3 l3 center" id="mylist">
+                <h5 style="text-align: center;">Top 5 Confirmed</h5><br>
+            </div>
+
+            <div class="col s12 m9 l9 center">
+                <div id="map" style="height: 500px;"></div>
+            </div>
+        </div>
+
+        <!--
+<div class="row">
+<div class="col s12 m6 l6 center">
+<div>
+<canvas id="chartjs-2"></canvas>
+</div>
+</div>
+</div>
+-->
+
+        <div class="row">
+            <div class="col l3">
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title center"><h4><b>Total Confirmed</b></h4></span>
+                        <p class="globalcases" style="text-align: center;" id="globalcases"></p>
+                        <br>
+                        <span class="card-title center"><h4><b>Total Deceased</b></h4></span>
+                        <p class="globaldeaths" style="text-align: center;" id="globaldeaths"></p>
+                        <br>
+                        <span class="card-title center"><h4><b>Total Active</b></h4></span>
+                        <p class="globalactive" style="text-align: center;" id="globalactive"></p>
+                        <br>
+                        <span class="card-title center"><h4><b>Total Recovered</b></h4></span>
+                        <p class="globalrecovered" style="text-align: center;" id="globalrecovered"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col s12 m12 l9">
+                <table class="highlight striped centered">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Location</th>
+                            <th>Confirmed Cases</th>
+                            <th>Deaths</th>
+                            <th>Recovered</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="fulllist"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <footer class="page-footer teal">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">COVID-19 Dashbord</h5>
+                        <p class="grey-text text-lighten-4">This website is intended to be a dashboard to track COVID-19 statistics across the world. Data is updated roughly every day.</p>
+                    </div>
+                    <div class="col l4 offset-l2 s12">
+                        <h5 class="white-text">Links</h5>
+                        <ul>
+                            <li><a class="grey-text text-lighten-3" href="index.html">All Data</a></li>
+                            <li><a class="grey-text text-lighten-3" href="countries.html">Countries</a></li>
+                            <li><a class="grey-text text-lighten-3" href="https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_daily_reports">JHU Data</a></li>
+                            <li><a class="grey-text text-lighten-3" href="https://github.com/yandax/COVID-19">GitHub</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    © 2020 Copyright Daniel Yang
+                </div>
+            </div>
+        </footer>
+
+    </body>
+
+    <script>
+
+        function makelist() {
+
+
+
+            mylist = document.getElementById("mylist");
+
+            myhtml = "<ul class=\"collection\" id=\"top5list\">"
+            for(i=0; i<5; i++) {
+                myhtml += "<li class=\"collection-item avatar\">";
+                if(data[i]["name"] == "Taiwan*") {
+                    myhtml += "<img src=\"w2560/Taiwan.png\" class='flag'>";
+                }else {
+                    myhtml += "<img src=\"w2560/" + data[i]['name'] + ".png\" class='flag'>";
+                }
+                myhtml += "<b>" + data[i]["name"] + "</b><br>";
+                myhtml += data[i]["conf"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</li>";
+            }
+            myhtml += "</ul>";
+
+            mylist.innerHTML += myhtml;
+        }
+
+        function fulllist() {
+
+            fulllist = document.getElementById("fulllist");
+
+            myhtml = "";
+            for(i=0; i<data.length; i++) {
+                myhtml += "<tr><td>" + (i+1) + "</td>";
+                myhtml += "<td>" + data[i]["name"] + "</td>";
+                myhtml += "<td>" + data[i]["conf"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</td>";
+                myhtml += "<td>" + data[i]["dead"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</td>";
+                myhtml += "<td>" + data[i]["recv"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</td></tr>";
+            }
+
+            fulllist.innerHTML += myhtml;
+
+        }
+
+        function global(){
+
+            globalcases = document.getElementById("globalcases");
+
+            total = 0;
+            for(i=0; i<data.length; i++){
+                total += data[i]["conf"];
+            }
+
+            globalcases.innerHTML = "<h3><b>" + total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</b></h3>";
+
+            globaldeaths = document.getElementById("globaldeaths");
+
+            total = 0;
+            for(i=0; i<data.length; i++){
+                total += data[i]["dead"];
+            }
+
+            globaldeaths.innerHTML = "<h3><b>" + total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</b></h3>";
+
+            globalactive = document.getElementById("globalactive");
+
+            total = 0;
+            for(i=0; i<data.length; i++){
+                total += data[i]["active"];
+            }
+
+            globalactive.innerHTML = "<h3><b>" + total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</b></h3>";
+
+            globalrecovered = document.getElementById("globalrecovered");
+
+            total = 0;
+            for(i=0; i<data.length; i++){
+                total += data[i]["recv"];
+            }
+
+            globalrecovered.innerHTML = "<h3><b>" + total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</b></h3>";
+
+        }
+
+        makelist();
+        fulllist();
+        global();
+
+        var map = L.map('map', {
+            'worldCopyJump': true
+        }).setView([20,0], 2);
+
+        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: 'Maps and Data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+        }).addTo(map);
+
+        var markerGroup = L.layerGroup().addTo(map);
+
+        function addmarkers() {
+            for(i=0; i<data.length; i++) {
+                var circle = L.circle([data[i]['lat'], data[i]['lon']], {
+                    "color": '#ff0033',
+                    "fillColor": '#ff0033',
+                    "fillOpacity": 0.5,
+                    "radius": Math.sqrt(data[i]['conf']) * 1200 * Math.abs(Math.cos(data[i]['lat']*Math.PI/180)) // Mercator scaling
+                }).addTo(markerGroup);
+                circle.bindPopup("<center><td><img src=\"w2560/" + data[i]['name'] + ".png\" width='50px'></td></center><center><h6 style='color: white; font-weight: bold;'>" + data[i]['name'] + "</h6></center><p style='display: inline; color: white;'>Confirmed:&nbsp;&nbsp;&nbsp;&nbsp;</p><p class='globalcases'>" + data[i]['conf'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</p><br><p style='display: inline; color: white;'>Deceased:&nbsp;&nbsp;&nbsp;&nbsp;</p><p class='globaldeaths'>" + data[i]['dead'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</p><br><p style='display: inline; color: white;'>Active:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p><p class='globalactive'>" + data[i]['active'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</p><br><p style='display: inline; color: white;'>Recovered:&nbsp;&nbsp;&nbsp;</p><p class='globalrecovered'>" + data[i]['recv'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</p>");
+                circle.on('mouseover', function (e) {
+                    this.openPopup();
+                });
+                circle.on('mouseout', function (e) {
+                    this.closePopup();
+                });
+            }
+        }
+
+        addmarkers();
+
+        function creategraph() {
+            labels = []
+            for(i=0; i<5; i++) {
+                labels.push(data[i]['name'])
+            }
+            cases = []
+            for(i=0; i<5; i++) {
+                cases.push(data[i]['conf'])
+            }
+
+            new Chart(document.getElementById("chartjs-2"),{
+                "type":"horizontalBar",
+                "data":{
+                    "labels": labels,
+                    "datasets":[{"label": "Confirmed",
+                                 "data": cases,
+                                 "fill": false,
+                                 "backgroundColor":["rgba(255, 99, 132, 0.2)",
+                                                    "rgba(255, 159, 64, 0.2)",
+                                                    "rgba(255, 205, 86, 0.2)",
+                                                    "rgba(75, 192, 192, 0.2)",
+                                                    "rgba(54, 162, 235, 0.2)",
+                                                    "rgba(153, 102, 255, 0.2)",
+                                                    "rgba(201, 203, 207, 0.2)"],
+                                 "borderColor":["rgb(255, 99, 132)",
+                                                "rgb(255, 159, 64)",
+                                                "rgb(255, 205, 86)",
+                                                "rgb(75, 192, 192)",
+                                                "rgb(54, 162, 235)",
+                                                "rgb(153, 102, 255)",
+                                                "rgb(201, 203, 207)"],
+                                 "borderWidth":1
+                                }]
+                },
+                "options":{
+                    legend: {
+                        display: false
+                    },
+                    title: {
+                        display: true,
+                        text: 'Top 5'
+                    },
+                    "scales":{
+                        "xAxes":[{"ticks":{"beginAtZero":true}}]
+                    }
+                }
+            });
+        }
+
+        //creategraph();
+
+        function reformatDate(date) {
+            var d = new Date(date),
+                month = '' + (d.getMonth() + 1),
+                day = '' + d.getDate(),
+                year = d.getFullYear();
+
+            if (month.length < 2) 
+                month = '0' + month;
+            if (day.length < 2) 
+                day = '0' + day;
+
+            return [month, day, year].join('-');
+        }
+
+        dateSlider.noUiSlider.on('set', function (values, handle) {
+            if (handle === 0) {
+                console.log(reformatDate(new Date(+values[handle])));
+                (elem=document.getElementById("countrydata")).parentNode.removeChild(elem)
+                document.getElementById("mylist").innerHTML = "<h5 style='text-align: center;'>Top 5 Confirmed</h5><br>";
+                var head = document.getElementsByTagName('head')[0];
+                script = document.createElement('script');
+                script.src = reformatDate(new Date(+values[handle])) + "-country.js";
+                script.type = "text/javascript";
+                script.id = "countrydata";
+                head.appendChild(script);
+                script.onload = function() {
+                    makelist();
+                    global();
+                    fulllist = document.getElementById("fulllist");
+                    fulllist.innerHTML = "";
+                    myhtml = "";
+                    for(i=0; i<data.length; i++) {
+                        myhtml += "<tr><td>" + (i+1) + "</td>";
+                        myhtml += "<td>" + data[i]["name"] + "</td>";
+                        myhtml += "<td>" + data[i]["conf"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</td>";
+                        myhtml += "<td>" + data[i]["dead"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</td>";
+                        myhtml += "<td>" + data[i]["recv"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</td></tr>";
+                    }
+                    fulllist.innerHTML += myhtml;
+                    markerGroup.clearLayers();
+                    addmarkers();
+                };
+            }
+        });
+
+
+    </script>
+
+</html>
