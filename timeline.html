@@ -128,13 +128,17 @@
         <h1 class="center">COVID-19 Dashboard - Timeline</h1>
 
         <div class="row">
-            <div class="col s3 m3 l3 center">
+            <div class="col s4 offset-s2 m4 offset-m3 l3 offset-l4 center">
                 <b><p class="example-val" id="event-start" style="font-size: 19; text-align: center"></p></b>
             </div>
+            <div class="col s4 m3 l1 center" style="padding-top: 17px;">
+                <a class="waves-effect waves-light btn-small" onclick="playtimeline();"><i class="material-icons right">play_arrow</i>Play</a>
+            </div>
+        </div>
 
-
-            <div class="col s9 m9 l9 center">
-                <div class="timeline" style="padding-top: 25px; padding-right: 50px;">
+        <div class="row">
+            <div class="col s12 m12 l12 center">
+                <div class="timeline" style="padding-left: 50px; padding-right: 50px;">
 
                     <div id="slider-date"></div><br>
                     <script>
@@ -178,7 +182,7 @@
                         var dateSlider = document.getElementById('slider-date');
                         noUiSlider.create(dateSlider, {
                             range: {
-                                min: timestamp('2020-05-02'),
+                                min: timestamp('2020-04-02'),
                                 max: timestamp('2020-06-26')
                             },
                             connect: [true, false],
@@ -472,7 +476,6 @@
             if (handle === 0) {
                 console.log(reformatDate(new Date(+values[handle])));
                 (elem=document.getElementById("countrydata")).parentNode.removeChild(elem)
-                document.getElementById("mylist").innerHTML = "<h5 style='text-align: center;'>Top 5 Confirmed</h5><br>";
                 var head = document.getElementsByTagName('head')[0];
                 script = document.createElement('script');
                 script.src = reformatDate(new Date(+values[handle])) + "-country.js";
@@ -480,6 +483,7 @@
                 script.id = "countrydata";
                 head.appendChild(script);
                 script.onload = function() {
+                    document.getElementById("mylist").innerHTML = "<h5 style='text-align: center;'>Top 5 Confirmed</h5><br>";
                     makelist();
                     global();
                     fulllist = document.getElementById("fulllist");
@@ -499,6 +503,29 @@
             }
         });
 
+        function playtimeline() {
+            console.log(dateSlider.noUiSlider.get());
+            dateSlider.noUiSlider.set(timestamp('2019'));
+            try{
+                if(counter != 0) {
+                    return;
+                }
+            }catch(e) {}
+            counter = 0;
+            myLoop();
+            function myLoop() {
+                setTimeout(function() {
+                    value = Number(dateSlider.noUiSlider.get());
+                    dateSlider.noUiSlider.set(value + 24 * 60 * 60 * 1000);
+                    counter++;
+                    if(counter < 85) {
+                        myLoop();
+                    }else {
+                        counter = 0;
+                    }
+                }, 200)
+            }
+        }
 
     </script>
 
