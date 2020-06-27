@@ -4,7 +4,7 @@
 
         <title>COVID-19 Dashboard</title>
 
-        <script src="06-25-2020-country.js" id="countrydata"></script>
+        <script src="06-26-2020-country.js" id="countrydata"></script> <!--change daily-->
 
         <!-- Compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -183,7 +183,7 @@
                         noUiSlider.create(dateSlider, {
                             range: {
                                 min: timestamp('2020-04-02'),
-                                max: timestamp('2020-06-26')
+                                max: timestamp('2020-06-27') // change daily
                             },
                             connect: [true, false],
                             step: 24 * 60 * 60 * 1000,
@@ -518,7 +518,7 @@
                     value = Number(dateSlider.noUiSlider.get());
                     dateSlider.noUiSlider.set(value + 24 * 60 * 60 * 1000);
                     counter++;
-                    if(counter < 85) {
+                    if(counter < 86) { // change daily
                         myLoop();
                     }else {
                         counter = 0;
