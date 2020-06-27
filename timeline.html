@@ -182,7 +182,7 @@
                         var dateSlider = document.getElementById('slider-date');
                         noUiSlider.create(dateSlider, {
                             range: {
-                                min: timestamp('2020-04-02'),
+                                min: timestamp('2020-03-02'),
                                 max: timestamp('2020-06-27') // change daily
                             },
                             connect: [true, false],
@@ -360,6 +360,10 @@
                 total += data[i]["active"];
             }
 
+            if(typeof total == "string") {
+                total = "N/A"
+            }
+            
             globalactive.innerHTML = "<h3><b>" + total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</b></h3>";
 
             globalrecovered = document.getElementById("globalrecovered");
@@ -518,7 +522,7 @@
                     value = Number(dateSlider.noUiSlider.get());
                     dateSlider.noUiSlider.set(value + 24 * 60 * 60 * 1000);
                     counter++;
-                    if(counter < 86) { // change daily
+                    if(counter < 117) { // change daily
                         myLoop();
                     }else {
                         counter = 0;
