@@ -132,7 +132,10 @@
                 <b><p class="example-val" id="event-start" style="font-size: 19; text-align: center"></p></b>
             </div>
             <div class="col s4 m3 l1 center" style="padding-top: 17px;">
-                <a class="waves-effect waves-light btn-small" onclick="playtimeline();"><i class="material-icons right">play_arrow</i>Play</a>
+                <a class="waves-effect waves-light btn-small" onclick="status = 1; playtimeline();"><i class="material-icons right">play_arrow</i>Play</a>
+            </div>
+            <div class="col s4 m3 l1 center" style="padding-top: 17px;">
+                <a class="waves-effect waves-light btn-small" onclick="status = -1;"><i class="material-icons right">stop</i>Stop</a>
             </div>
         </div>
 
@@ -508,26 +511,17 @@
         });
 
         function playtimeline() {
-            console.log(dateSlider.noUiSlider.get());
-            dateSlider.noUiSlider.set(timestamp('2019'));
-            try{
-                if(counter != 0) {
-                    return;
-                }
-            }catch(e) {}
-            counter = 0;
+            status = 1;
             myLoop();
             function myLoop() {
                 setTimeout(function() {
+                    console.log(dateSlider.noUiSlider.get());
                     value = Number(dateSlider.noUiSlider.get());
                     dateSlider.noUiSlider.set(value + 24 * 60 * 60 * 1000);
-                    counter++;
-                    if(counter < 117) { // change daily
+                    if(reformatDate(new Date(+value)) != "06-26-2020" && status == 1) { // change daily
                         myLoop();
-                    }else {
-                        counter = 0;
                     }
-                }, 200)
+                }, 300)
             }
         }
 
