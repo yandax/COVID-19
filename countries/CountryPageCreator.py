@@ -16,7 +16,7 @@ for country in countries:
 
         <script>
             currentdate = "06-27-2020"; // change daily
-            countryname = "''' + country + '''";
+            countryname = "''' + country + '''*";
         </script>
 
         <!-- Compiled and minified CSS -->
@@ -381,10 +381,7 @@ for country in countries:
             </nav>
         </div>
 
-        <h1 class="center" id="pagetitle">COVID-19 Dashboard - </h1>
-        <script>
-            document.getElementById('pagetitle').innerHTML += Taiwan;
-        </script>
+        <h1 class="center" id="pagetitle">COVID-19 Dashboard - Taiwan</h1>
         <br>
 
         <div class="row">
