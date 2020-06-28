@@ -761,8 +761,6 @@
 
         function makelist() {
 
-
-
             mylist = document.getElementById("mylist");
 
             myhtml = "<ul class=\"collection\" id=\"top5list\">"
@@ -773,7 +771,7 @@
                 }else {
                     myhtml += "<img src=\"w2560/" + data[i]['name'] + ".png\" class='flag'>";
                 }
-                myhtml += "<b>" + data[i]["name"] + "</b><br>";
+                myhtml += "<b><a href='./countries/" + data[i]["name"] + ".html' target='_blank' style='color: black;'>" + data[i]["name"] + "</a></b><br>";
                 myhtml += data[i]["conf"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</li>";
             }
             myhtml += "</ul>";
@@ -788,7 +786,7 @@
             myhtml = "";
             for(i=0; i<data.length; i++) {
                 myhtml += "<tr><td></td>";
-                myhtml += "<td>" + data[i]["name"] + "</td>";
+                myhtml += "<td><a href='./countries/" + data[i]["name"] + ".html' target='_blank'>" + data[i]["name"] + "</a></td>";
                 myhtml += "<td>" + data[i]["conf"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</td>";
                 myhtml += "<td>" + data[i]["dead"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</td>";
                 myhtml += "<td>" + data[i]["recv"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</td></tr>";
@@ -858,13 +856,18 @@
 
         function addmarkers() {
             for(i=0; i<data.length; i++) {
+                if(typeof data[i]['active'] == "string") {
+                    active = "N/A";
+                }else {
+                    active = data[i]['active'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                }
                 var circle = L.circle([data[i]['lat'], data[i]['lon']], {
                     "color": '#ff0033',
                     "fillColor": '#ff0033',
                     "fillOpacity": 0.5,
                     "radius": Math.sqrt(data[i]['conf']) * 1200 * Math.abs(Math.cos(data[i]['lat']*Math.PI/180)) // Mercator scaling
                 }).addTo(markerGroup);
-                circle.bindPopup("<center><td><img src=\"w2560/" + data[i]['name'] + ".png\" width='50px'></td></center><center><h6 style='color: white; font-weight: bold;'>" + data[i]['name'] + "</h6></center><p style='display: inline; color: white;'>Confirmed:&nbsp;&nbsp;&nbsp;&nbsp;</p><p class='globalcases'>" + data[i]['conf'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</p><br><p style='display: inline; color: white;'>Deceased:&nbsp;&nbsp;&nbsp;&nbsp;</p><p class='globaldeaths'>" + data[i]['dead'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</p><br><p style='display: inline; color: white;'>Active:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p><p class='globalactive'>" + data[i]['active'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</p><br><p style='display: inline; color: white;'>Recovered:&nbsp;&nbsp;&nbsp;</p><p class='globalrecovered'>" + data[i]['recv'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</p>");
+                circle.bindPopup("<center><td><img src=\"w2560/" + data[i]['name'] + ".png\" width='50px'></td></center><center><h6 style='color: white; font-weight: bold;'>" + data[i]['name'] + "</h6></center><p style='display: inline; color: white;'>Confirmed:&nbsp;&nbsp;&nbsp;&nbsp;</p><p class='globalcases'>" + data[i]['conf'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</p><br><p style='display: inline; color: white;'>Deceased:&nbsp;&nbsp;&nbsp;&nbsp;</p><p class='globaldeaths'>" + data[i]['dead'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</p><br><p style='display: inline; color: white;'>Active:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p><p class='globalactive'>" + active + "</p><br><p style='display: inline; color: white;'>Recovered:&nbsp;&nbsp;&nbsp;</p><p class='globalrecovered'>" + data[i]['recv'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</p>");
                 circle.on('mouseover', function (e) {
                     this.openPopup();
                 });
