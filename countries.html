@@ -697,7 +697,7 @@
             myhtml = "";
             for(i=0; i<data.length; i++) {
                 myhtml += "<tr><td style='width: 70px;'></td>";
-                myhtml += "<td>" + data[i]["name"] + "</td>";
+                myhtml += "<td><a href='./countries/" + data[i]["name"] + ".html' target='_blank'>" + data[i]["name"] + "</a></td>";
                 myhtml += "<td>" + data[i]["conf"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</td>";
                 myhtml += "<td>" + data[i]["dead"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</td>";
                 myhtml += "<td>" + data[i]["recv"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</td></tr>";
