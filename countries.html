@@ -682,7 +682,7 @@
                 }else {
                     myhtml += "<img src=\"w2560/" + data[i]['name'] + ".png\" class='flag'>";
                 }
-                myhtml += "<b>" + data[i]["name"] + "</b><br>";
+                myhtml += "<b><a href='./countries/" + data[i]["name"] + ".html' target='_blank' style='color: black;'>" + data[i]["name"] + "</a></b><br>";
                 myhtml += data[i]["conf"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</li>";
             }
             myhtml += "</ul>";
