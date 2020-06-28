@@ -4,7 +4,7 @@
 
         <title>COVID-19 Dashboard</title>
 
-        <script src="06-26-2020-country.js" id="countrydata"></script> <!--change daily-->
+        <script src="06-27-2020-country.js" id="countrydata"></script> <!--change daily-->
 
         <!-- Compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -435,7 +435,7 @@
                         noUiSlider.create(dateSlider, {
                             range: {
                                 min: timestamp('2020-03-02'),
-                                max: timestamp('2020-06-27') // change daily
+                                max: timestamp('2020-06-28') // change daily
                             },
                             connect: [true, false],
                             step: 24 * 60 * 60 * 1000,
@@ -976,7 +976,7 @@
                     console.log(dateSlider.noUiSlider.get());
                     value = Number(dateSlider.noUiSlider.get());
                     dateSlider.noUiSlider.set(value + 24 * 60 * 60 * 1000);
-                    if(reformatDate(new Date(+value)) != "06-26-2020" && status == 1) { // change daily
+                    if(reformatDate(new Date(+value)) != "06-27-2020" && status == 1) { // change daily
                         myLoop();
                     }
                 }, 500)
