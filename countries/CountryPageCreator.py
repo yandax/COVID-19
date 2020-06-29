@@ -706,11 +706,31 @@ for country in countries:
                     }
                     dailycases.unshift(final-initial);
                 }
+                caserollingaverage = [dailycases[0]];
+                for(i=0; i<6; i++){
+                    total = 0;
+                    for(j=0; j<i+2; j++){
+                        total += dailycases[j]
+                    }
+                    total /= (i+2);
+                    caserollingaverage.push(total);
+                }
+                for(i=7; i<dailycases.length; i++){
+                    caserollingaverage.push((dailycases[i]+dailycases[i-1]+dailycases[i-2]+dailycases[i-3]+dailycases[i-4]+dailycases[i-5]+dailycases[i-6])/7);
+                }
                 var myChart = new Chart(ctx, {
                     type: 'bar',
                     data: {
                         labels: dates,
                         datasets: [{
+                            label: '7-day Average',
+                            data: caserollingaverage,
+                            fill: "false",
+                            type: 'line',
+                            backgroundColor: "#fff",
+                            borderColor: "#33aacc",
+                            pointBackgroundColor: "#33aacc"
+                        },{
                             label: 'Daily Cases',
                             data: dailycases,
                             fill: "origin",
@@ -740,7 +760,11 @@ for country in countries:
                             intersect: false,
                             callbacks: {
                                 label: function(tooltipItem, data) {
-                                    return "Daily Cases: " + data["datasets"][0]["data"][tooltipItem["index"]].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    if(tooltipItem.datasetIndex === 1){
+                                        return "Daily Cases: " + data["datasets"][1]["data"][tooltipItem["index"]].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else {
+                                        return "7-Day Average: " + Math.floor(data["datasets"][0]["data"][tooltipItem["index"]]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }
                                 }
                             }
                         }
@@ -771,11 +795,31 @@ for country in countries:
                     }
                     dailydeaths.unshift(final-initial);
                 }
+                deathrollingaverage = [dailydeaths[0]];
+                for(i=0; i<6; i++){
+                    total = 0;
+                    for(j=0; j<i+2; j++){
+                        total += dailydeaths[j]
+                    }
+                    total /= (i+2);
+                    deathrollingaverage.push(total);
+                }
+                for(i=7; i<dailydeaths.length; i++){
+                    deathrollingaverage.push((dailydeaths[i]+dailydeaths[i-1]+dailydeaths[i-2]+dailydeaths[i-3]+dailydeaths[i-4]+dailydeaths[i-5]+dailydeaths[i-6])/7);
+                }
                 var myChart = new Chart(ctx, {
                     type: 'bar',
                     data: {
                         labels: dates,
                         datasets: [{
+                            label: '7-day Average',
+                            data: deathrollingaverage,
+                            fill: "false",
+                            type: 'line',
+                            backgroundColor: "#fff",
+                            borderColor: "#33aacc",
+                            pointBackgroundColor: "#33aacc"
+                        },{
                             label: 'Daily Deaths',
                             data: dailydeaths,
                             fill: "origin",
@@ -805,7 +849,11 @@ for country in countries:
                             intersect: false,
                             callbacks: {
                                 label: function(tooltipItem, data) {
-                                    return "Daily Deaths: " + data["datasets"][0]["data"][tooltipItem["index"]].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    if(tooltipItem.datasetIndex === 1){
+                                        return "Daily Deaths: " + data["datasets"][1]["data"][tooltipItem["index"]].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else {
+                                        return "7-Day Average: " + Math.floor(data["datasets"][0]["data"][tooltipItem["index"]]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }
                                 }
                             }
                         }
@@ -1869,11 +1917,31 @@ for country in countries:
                     }
                     dailycases.unshift(final-initial);
                 }
+                caserollingaverage = [dailycases[0]];
+                for(i=0; i<6; i++){
+                    total = 0;
+                    for(j=0; j<i+2; j++){
+                        total += dailycases[j]
+                    }
+                    total /= (i+2);
+                    caserollingaverage.push(total);
+                }
+                for(i=7; i<dailycases.length; i++){
+                    caserollingaverage.push((dailycases[i]+dailycases[i-1]+dailycases[i-2]+dailycases[i-3]+dailycases[i-4]+dailycases[i-5]+dailycases[i-6])/7);
+                }
                 var myChart = new Chart(ctx, {
                     type: 'bar',
                     data: {
                         labels: dates,
                         datasets: [{
+                            label: '7-day Average',
+                            data: caserollingaverage,
+                            fill: "false",
+                            type: 'line',
+                            backgroundColor: "#fff",
+                            borderColor: "#33aacc",
+                            pointBackgroundColor: "#33aacc"
+                        },{
                             label: 'Daily Cases',
                             data: dailycases,
                             fill: "origin",
@@ -1903,7 +1971,11 @@ for country in countries:
                             intersect: false,
                             callbacks: {
                                 label: function(tooltipItem, data) {
-                                    return "Daily Cases: " + data["datasets"][0]["data"][tooltipItem["index"]].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    if(tooltipItem.datasetIndex === 1){
+                                        return "Daily Cases: " + data["datasets"][1]["data"][tooltipItem["index"]].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else {
+                                        return "7-Day Average: " + Math.floor(data["datasets"][0]["data"][tooltipItem["index"]]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }
                                 }
                             }
                         }
@@ -1934,11 +2006,31 @@ for country in countries:
                     }
                     dailydeaths.unshift(final-initial);
                 }
+                deathrollingaverage = [dailydeaths[0]];
+                for(i=0; i<6; i++){
+                    total = 0;
+                    for(j=0; j<i+2; j++){
+                        total += dailydeaths[j]
+                    }
+                    total /= (i+2);
+                    deathrollingaverage.push(total);
+                }
+                for(i=7; i<dailydeaths.length; i++){
+                    deathrollingaverage.push((dailydeaths[i]+dailydeaths[i-1]+dailydeaths[i-2]+dailydeaths[i-3]+dailydeaths[i-4]+dailydeaths[i-5]+dailydeaths[i-6])/7);
+                }
                 var myChart = new Chart(ctx, {
                     type: 'bar',
                     data: {
                         labels: dates,
                         datasets: [{
+                            label: '7-day Average',
+                            data: deathrollingaverage,
+                            fill: "false",
+                            type: 'line',
+                            backgroundColor: "#fff",
+                            borderColor: "#33aacc",
+                            pointBackgroundColor: "#33aacc"
+                        },{
                             label: 'Daily Deaths',
                             data: dailydeaths,
                             fill: "origin",
@@ -1968,7 +2060,11 @@ for country in countries:
                             intersect: false,
                             callbacks: {
                                 label: function(tooltipItem, data) {
-                                    return "Daily Deaths: " + data["datasets"][0]["data"][tooltipItem["index"]].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    if(tooltipItem.datasetIndex === 1){
+                                        return "Daily Deaths: " + data["datasets"][1]["data"][tooltipItem["index"]].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }else {
+                                        return "7-Day Average: " + Math.floor(data["datasets"][0]["data"][tooltipItem["index"]]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    }
                                 }
                             }
                         }
