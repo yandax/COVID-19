@@ -163,11 +163,11 @@ for i in country:
 conflist.sort(key=lambda s: s['conf'], reverse=True)
 countrylist.sort(key=lambda s: s['conf'], reverse=True)
 
-fileout = open(today+".js", "w")
+fileout = open("./data/"+today+".js", "w")
 fileout.write("data = " + str(conflist))
 fileout.close()
 
-fileout = open(today+"-country.js", "w")
+fileout = open("./data/"+today+"-country.js", "w")
 fileout.write("data = " + str(countrylist))
 fileout.close()
 
@@ -304,17 +304,17 @@ for days in range(1,200):
     conflist.sort(key=lambda s: s['conf'], reverse=True)
     countrylist.sort(key=lambda s: s['conf'], reverse=True)
 
-    # fileout = open(today+".js", "w")
+    # fileout = open("./data/"+today+".js", "w")
     # fileout.write("data = " + str(conflist))
     # fileout.close()
     #
-    # fileout = open(today+"-country.js", "w")
+    # fileout = open("./data/"+today+"-country.js", "w")
     # fileout.write("data = " + str(countrylist))
     # fileout.close()
 
     alldata[today] = countrylist
 
-fileout = open("allcountrydata.js", "w")
+fileout = open("./countries/allcountrydata.js", "w")
 fileout.write("data = " + str(alldata))
 fileout.close()
 
