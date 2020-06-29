@@ -17,7 +17,7 @@ for country in countries:
 
         <script>
             currentdate = "''' + date + '''"; // change daily
-            countryname = "''' + country + '''*";
+            countryname = "Taiwan*";
         </script>
 
         <!-- Compiled and minified CSS -->
@@ -361,6 +361,28 @@ for country in countries:
                 color: rgba(0, 0, 0, 0.6);
             }
 
+            .tabs .tab a{
+                color: #000;
+            } /*Text color*/
+
+            .tabs .tab a:hover {
+                color: black;
+            }
+
+            .tabs .tab a:focus.active {
+                background-color: #fff;
+                /*Custom Background Color While Active*/
+            }
+            
+            .tabs .tab a.active {
+                background-color: #ffffff;
+                color: #000;
+            } /*Background and text color when a tab is active*/
+
+            .tabs .indicator {
+                background-color: #4db6ac;
+            } /*Color of underline*/
+
         </style>
 
     </head>
@@ -391,11 +413,28 @@ for country in countries:
         </div>
 
         <div class="row">
-            <div class="col s12 m6 l6">
-                <canvas id="casechart"></canvas>
+            <div class="card col s12 m6 l6">
+                <div class="card-tabs">
+                    <ul class="tabs tabs-fixed-width" id='casecard'>
+                        <li class="tab"><a class="active" href="#linearcase">Linear</a></li>
+                        <li class="tab"><a href="#logcase">Logarithmic</a></li>
+                    </ul>
+                </div>
+                <div class="card-content white">
+                    <div id="linearcase">
+                        <canvas id="linearcasechart"></canvas>
+                    </div>
+                    <div id="logcase">
+                        <canvas id="logcasechart"></canvas>
+                    </div>
+                </div>
+                <script>
+                    var el = document.getElementById('casecard');
+                    var instance = M.Tabs.init(el, {});
+                </script>
             </div>
             <script>
-                var ctx = document.getElementById('casechart');
+                var ctx = document.getElementById('linearcasechart');
                 dates = [];
                 cases = [];
                 for(var i in data) {
@@ -427,7 +466,7 @@ for country in countries:
                         },
                         title: {
                             display: true,
-                            text: 'Total Cases'
+                            text: 'Total Cases (linear)'
                         },
                         "scales":{
                             "xAxes":[{
@@ -449,11 +488,86 @@ for country in countries:
                     }
                 });
             </script>
-            <div class="col s12 m6 l6">
-                <canvas id="deathchart"></canvas>
+            <script>
+                var ctx = document.getElementById('logcasechart');
+                dates = [];
+                cases = [];
+                for(var i in data) {
+                    dates.unshift(i);
+                    conf = 0;
+                    for(j=0; j<data[i].length; j++) {
+                        if(data[i][j]["name"] == countryname) {
+                            conf = data[i][j]["conf"];
+                        }
+                    }
+                    cases.unshift(conf);
+                }
+                var myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: dates,
+                        datasets: [{
+                            label: 'Total Cases',
+                            data: cases,
+                            fill: "origin",
+                            backgroundColor: "#ff9d0044",
+                            borderColor: "#ff9d00",
+                            lineTension: 0.1
+                        }]
+                    },
+                    options: {
+                        legend: {
+                            display: false
+                        },
+                        title: {
+                            display: true,
+                            text: 'Total Cases (logarithmic)'
+                        },
+                        "scales":{
+                            "xAxes":[{
+                                "ticks":{
+                                    beginAtZero:true,
+                                    maxTicksLimit: 20
+                                }
+                            }],
+                            "yAxes":[{
+                                type: 'logarithmic'
+                            }]
+                        },
+                        tooltips: {
+                            mode: "index",
+                            intersect: false,
+                            callbacks: {
+                                label: function(tooltipItem, data) {
+                                    return "Total Cases: " + data["datasets"][0]["data"][tooltipItem["index"]].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }
+                            }
+                        }
+                    }
+                });
+            </script>
+            <div class="card col s12 m6 l6">
+                <div class="card-tabs">
+                    <ul class="tabs tabs-fixed-width" id="deathcard">
+                        <li class="tab"><a class="active" href="#lineardeath">Linear</a></li>
+                        <li class="tab"><a href="#logdeath">Logarithmic</a></li>
+                    </ul>
+                </div>
+                <div class="card-content white">
+                    <div id="lineardeath">
+                        <canvas id="lineardeathchart"></canvas>
+                    </div>
+                    <div id="logdeath">
+                        <canvas id="logdeathchart"></canvas>
+                    </div>
+                </div>
+                <script>
+                    var el = document.getElementById('deathcard');
+                    var instance2 = M.Tabs.init(el, {});
+                </script>
             </div>
             <script>
-                var ctx = document.getElementById('deathchart');
+                var ctx = document.getElementById('lineardeathchart');
                 dates = [];
                 deaths = [];
                 for(var i in data) {
@@ -485,7 +599,7 @@ for country in countries:
                         },
                         title: {
                             display: true,
-                            text: 'Total Dead'
+                            text: 'Total Dead (linear)'
                         },
                         "scales":{
                             "xAxes":[{
@@ -493,6 +607,64 @@ for country in countries:
                                     beginAtZero:true,
                                     maxTicksLimit: 20
                                 }
+                            }]
+                        },
+                        tooltips: {
+                            mode: "index",
+                            intersect: false,
+                            callbacks: {
+                                label: function(tooltipItem, data) {
+                                    return "Total Deaths: " + data["datasets"][0]["data"][tooltipItem["index"]].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }
+                            }
+                        }
+                    }
+                });
+            </script>
+            <script>
+                var ctx = document.getElementById('logdeathchart');
+                dates = [];
+                deaths = [];
+                for(var i in data) {
+                    dates.unshift(i);
+                    dead = 0;
+                    for(j=0; j<data[i].length; j++) {
+                        if(data[i][j]["name"] == countryname) {
+                            dead = data[i][j]["dead"];
+                        }
+                    }
+                    deaths.unshift(dead);
+                }
+                var myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: dates,
+                        datasets: [{
+                            label: 'Total Dead',
+                            data: deaths,
+                            fill: "origin",
+                            backgroundColor: "#f6516444",
+                            borderColor: "#f65164",
+                            lineTension: 0.1
+                        }]
+                    },
+                    options: {
+                        legend: {
+                            display: false
+                        },
+                        title: {
+                            display: true,
+                            text: 'Total Dead (logarithmic)'
+                        },
+                        "scales":{
+                            "xAxes":[{
+                                "ticks":{
+                                    beginAtZero:true,
+                                    maxTicksLimit: 20
+                                }
+                            }],
+                            "yAxes":[{
+                                "type": 'logarithmic'
                             }]
                         },
                         tooltips: {
@@ -1352,6 +1524,28 @@ for country in countries:
                 color: rgba(0, 0, 0, 0.6);
             }
 
+            .tabs .tab a{
+                color: #000;
+            } /*Text color*/
+
+            .tabs .tab a:hover {
+                color: black;
+            }
+
+            .tabs .tab a:focus.active {
+                background-color: #fff;
+                /*Custom Background Color While Active*/
+            }
+            
+            .tabs .tab a.active {
+                background-color: #ffffff;
+                color: #000;
+            } /*Background and text color when a tab is active*/
+
+            .tabs .indicator {
+                background-color: #4db6ac;
+            } /*Color of underline*/
+
         </style>
 
     </head>
@@ -1380,14 +1574,30 @@ for country in countries:
                 <h1 class="center" id="pagetitle" style="display: inline;">&nbsp;-&nbsp;''' + country + '''</h1>
             </div>
         </div>
-        <br>
 
         <div class="row">
-            <div class="col s12 m6 l6">
-                <canvas id="casechart"></canvas>
+            <div class="card col s12 m6 l6">
+                <div class="card-tabs">
+                    <ul class="tabs tabs-fixed-width" id='casecard'>
+                        <li class="tab"><a class="active" href="#linearcase">Linear</a></li>
+                        <li class="tab"><a href="#logcase">Logarithmic</a></li>
+                    </ul>
+                </div>
+                <div class="card-content white">
+                    <div id="linearcase">
+                        <canvas id="linearcasechart"></canvas>
+                    </div>
+                    <div id="logcase">
+                        <canvas id="logcasechart"></canvas>
+                    </div>
+                </div>
+                <script>
+                    var el = document.getElementById('casecard');
+                    var instance = M.Tabs.init(el, {});
+                </script>
             </div>
             <script>
-                var ctx = document.getElementById('casechart');
+                var ctx = document.getElementById('linearcasechart');
                 dates = [];
                 cases = [];
                 for(var i in data) {
@@ -1419,7 +1629,7 @@ for country in countries:
                         },
                         title: {
                             display: true,
-                            text: 'Total Cases'
+                            text: 'Total Cases (linear)'
                         },
                         "scales":{
                             "xAxes":[{
@@ -1441,11 +1651,86 @@ for country in countries:
                     }
                 });
             </script>
-            <div class="col s12 m6 l6">
-                <canvas id="deathchart"></canvas>
+            <script>
+                var ctx = document.getElementById('logcasechart');
+                dates = [];
+                cases = [];
+                for(var i in data) {
+                    dates.unshift(i);
+                    conf = 0;
+                    for(j=0; j<data[i].length; j++) {
+                        if(data[i][j]["name"] == countryname) {
+                            conf = data[i][j]["conf"];
+                        }
+                    }
+                    cases.unshift(conf);
+                }
+                var myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: dates,
+                        datasets: [{
+                            label: 'Total Cases',
+                            data: cases,
+                            fill: "origin",
+                            backgroundColor: "#ff9d0044",
+                            borderColor: "#ff9d00",
+                            lineTension: 0.1
+                        }]
+                    },
+                    options: {
+                        legend: {
+                            display: false
+                        },
+                        title: {
+                            display: true,
+                            text: 'Total Cases (logarithmic)'
+                        },
+                        "scales":{
+                            "xAxes":[{
+                                "ticks":{
+                                    beginAtZero:true,
+                                    maxTicksLimit: 20
+                                }
+                            }],
+                            "yAxes":[{
+                                type: 'logarithmic'
+                            }]
+                        },
+                        tooltips: {
+                            mode: "index",
+                            intersect: false,
+                            callbacks: {
+                                label: function(tooltipItem, data) {
+                                    return "Total Cases: " + data["datasets"][0]["data"][tooltipItem["index"]].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }
+                            }
+                        }
+                    }
+                });
+            </script>
+            <div class="card col s12 m6 l6">
+                <div class="card-tabs">
+                    <ul class="tabs tabs-fixed-width" id="deathcard">
+                        <li class="tab"><a class="active" href="#lineardeath">Linear</a></li>
+                        <li class="tab"><a href="#logdeath">Logarithmic</a></li>
+                    </ul>
+                </div>
+                <div class="card-content white">
+                    <div id="lineardeath">
+                        <canvas id="lineardeathchart"></canvas>
+                    </div>
+                    <div id="logdeath">
+                        <canvas id="logdeathchart"></canvas>
+                    </div>
+                </div>
+                <script>
+                    var el = document.getElementById('deathcard');
+                    var instance2 = M.Tabs.init(el, {});
+                </script>
             </div>
             <script>
-                var ctx = document.getElementById('deathchart');
+                var ctx = document.getElementById('lineardeathchart');
                 dates = [];
                 deaths = [];
                 for(var i in data) {
@@ -1477,7 +1762,7 @@ for country in countries:
                         },
                         title: {
                             display: true,
-                            text: 'Total Dead'
+                            text: 'Total Dead (linear)'
                         },
                         "scales":{
                             "xAxes":[{
@@ -1485,6 +1770,64 @@ for country in countries:
                                     beginAtZero:true,
                                     maxTicksLimit: 20
                                 }
+                            }]
+                        },
+                        tooltips: {
+                            mode: "index",
+                            intersect: false,
+                            callbacks: {
+                                label: function(tooltipItem, data) {
+                                    return "Total Deaths: " + data["datasets"][0]["data"][tooltipItem["index"]].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }
+                            }
+                        }
+                    }
+                });
+            </script>
+            <script>
+                var ctx = document.getElementById('logdeathchart');
+                dates = [];
+                deaths = [];
+                for(var i in data) {
+                    dates.unshift(i);
+                    dead = 0;
+                    for(j=0; j<data[i].length; j++) {
+                        if(data[i][j]["name"] == countryname) {
+                            dead = data[i][j]["dead"];
+                        }
+                    }
+                    deaths.unshift(dead);
+                }
+                var myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: dates,
+                        datasets: [{
+                            label: 'Total Dead',
+                            data: deaths,
+                            fill: "origin",
+                            backgroundColor: "#f6516444",
+                            borderColor: "#f65164",
+                            lineTension: 0.1
+                        }]
+                    },
+                    options: {
+                        legend: {
+                            display: false
+                        },
+                        title: {
+                            display: true,
+                            text: 'Total Dead (logarithmic)'
+                        },
+                        "scales":{
+                            "xAxes":[{
+                                "ticks":{
+                                    beginAtZero:true,
+                                    maxTicksLimit: 20
+                                }
+                            }],
+                            "yAxes":[{
+                                "type": 'logarithmic'
                             }]
                         },
                         tooltips: {
