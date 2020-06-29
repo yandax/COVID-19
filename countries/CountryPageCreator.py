@@ -433,6 +433,8 @@ for country in countries:
                             }]
                         },
                         tooltips: {
+                            mode: "index",
+                            intersect: false,
                             callbacks: {
                                 label: function(tooltipItem, data) {
                                     return "Total Cases: " + data["datasets"][0]["data"][tooltipItem["index"]].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -489,6 +491,8 @@ for country in countries:
                             }]
                         },
                         tooltips: {
+                            mode: "index",
+                            intersect: false,
                             callbacks: {
                                 label: function(tooltipItem, data) {
                                     return "Total Deaths: " + data["datasets"][0]["data"][tooltipItem["index"]].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -526,14 +530,14 @@ for country in countries:
                     dailycases.unshift(final-initial);
                 }
                 var myChart = new Chart(ctx, {
-                    type: 'line',
+                    type: 'bar',
                     data: {
                         labels: dates,
                         datasets: [{
                             label: 'Daily Cases',
                             data: dailycases,
                             fill: "origin",
-                            backgroundColor: "#ff9d0044",
+                            backgroundColor: "#ff9d00",
                             borderColor: "#ff9d00",
                             lineTension: 0.1
                         }]
@@ -555,6 +559,8 @@ for country in countries:
                             }]
                         },
                         tooltips: {
+                            mode: "index",
+                            intersect: false,
                             callbacks: {
                                 label: function(tooltipItem, data) {
                                     return "Daily Cases: " + data["datasets"][0]["data"][tooltipItem["index"]].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -589,14 +595,14 @@ for country in countries:
                     dailydeaths.unshift(final-initial);
                 }
                 var myChart = new Chart(ctx, {
-                    type: 'line',
+                    type: 'bar',
                     data: {
                         labels: dates,
                         datasets: [{
                             label: 'Daily Deaths',
                             data: dailydeaths,
                             fill: "origin",
-                            backgroundColor: "#f6516444",
+                            backgroundColor: "#f65164",
                             borderColor: "#f65164",
                             lineTension: 0.1
                         }]
@@ -618,6 +624,8 @@ for country in countries:
                             }]
                         },
                         tooltips: {
+                            mode: "index",
+                            intersect: false,
                             callbacks: {
                                 label: function(tooltipItem, data) {
                                     return "Daily Deaths: " + data["datasets"][0]["data"][tooltipItem["index"]].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -1414,6 +1422,8 @@ for country in countries:
                             }]
                         },
                         tooltips: {
+                            mode: "index",
+                            intersect: false,
                             callbacks: {
                                 label: function(tooltipItem, data) {
                                     return "Total Cases: " + data["datasets"][0]["data"][tooltipItem["index"]].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -1470,6 +1480,8 @@ for country in countries:
                             }]
                         },
                         tooltips: {
+                            mode: "index",
+                            intersect: false,
                             callbacks: {
                                 label: function(tooltipItem, data) {
                                     return "Total Deaths: " + data["datasets"][0]["data"][tooltipItem["index"]].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -1507,14 +1519,14 @@ for country in countries:
                     dailycases.unshift(final-initial);
                 }
                 var myChart = new Chart(ctx, {
-                    type: 'line',
+                    type: 'bar',
                     data: {
                         labels: dates,
                         datasets: [{
                             label: 'Daily Cases',
                             data: dailycases,
                             fill: "origin",
-                            backgroundColor: "#ff9d0044",
+                            backgroundColor: "#ff9d00",
                             borderColor: "#ff9d00",
                             lineTension: 0.1
                         }]
@@ -1536,6 +1548,8 @@ for country in countries:
                             }]
                         },
                         tooltips: {
+                            mode: "index",
+                            intersect: false,
                             callbacks: {
                                 label: function(tooltipItem, data) {
                                     return "Daily Cases: " + data["datasets"][0]["data"][tooltipItem["index"]].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -1570,14 +1584,14 @@ for country in countries:
                     dailydeaths.unshift(final-initial);
                 }
                 var myChart = new Chart(ctx, {
-                    type: 'line',
+                    type: 'bar',
                     data: {
                         labels: dates,
                         datasets: [{
                             label: 'Daily Deaths',
                             data: dailydeaths,
                             fill: "origin",
-                            backgroundColor: "#f6516444",
+                            backgroundColor: "#f65164",
                             borderColor: "#f65164",
                             lineTension: 0.1
                         }]
@@ -1599,6 +1613,8 @@ for country in countries:
                             }]
                         },
                         tooltips: {
+                            mode: "index",
+                            intersect: false,
                             callbacks: {
                                 label: function(tooltipItem, data) {
                                     return "Daily Deaths: " + data["datasets"][0]["data"][tooltipItem["index"]].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
