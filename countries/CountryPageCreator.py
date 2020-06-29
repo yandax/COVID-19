@@ -382,8 +382,13 @@ for country in countries:
             </nav>
         </div>
 
-        <h1 class="center" id="pagetitle">COVID-19 Dashboard - Taiwan</h1>
-        <br>
+        <div class="row">
+            <div class="col s12 m12 l12 center">
+                <br>
+                <img src='../w2560/Taiwan.png' style='height: 70px; vertical-align: top; padding-top: 11px;'>
+                <h1 class="center" id="pagetitle" style="display: inline;">&nbsp;-&nbsp;Taiwan</h1>
+            </div>
+        </div>
 
         <div class="row">
             <div class="col s12 m6 l6">
@@ -1368,10 +1373,13 @@ for country in countries:
             </nav>
         </div>
 
-        <h1 class="center" id="pagetitle">COVID-19 Dashboard - </h1>
-        <script>
-            document.getElementById('pagetitle').innerHTML += countryname;
-        </script>
+        <div class="row">
+            <div class="col s12 m12 l12 center">
+                <br>
+                <img src='../w2560/''' + country + '''.png' style='height: 70px; vertical-align: top; padding-top: 11px;'>
+                <h1 class="center" id="pagetitle" style="display: inline;">&nbsp;-&nbsp;''' + country + '''</h1>
+            </div>
+        </div>
         <br>
 
         <div class="row">
