@@ -3,6 +3,7 @@ import sys
 countries = ['US', 'Italy', 'Brazil', 'Russia', 'Mexico', 'Japan', 'Canada', 'Colombia', 'Peru', 'Spain', 'India', 'United Kingdom', 'China', 'Chile', 'Netherlands', 'Australia', 'Pakistan', 'Germany', 'Sweden', 'Ukraine', 'Denmark', 'France', 'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina', 'Armenia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia', 'Bosnia and Herzegovina', 'Botswana', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burma', 'Burundi', 'Cabo Verde', 'Cambodia', 'Cameroon', 'Central African Republic', 'Chad', 'Comoros', 'Congo (Brazzaville)', 'Congo (Kinshasa)', 'Costa Rica', "Cote d'Ivoire", 'Croatia', 'Cuba', 'Cyprus', 'Czechia', 'Diamond Princess', 'Djibouti', 'Dominica', 'Dominican Republic', 'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia', 'Eswatini', 'Ethiopia', 'Fiji', 'Finland', 'Gabon', 'Gambia', 'Georgia', 'Ghana', 'Greece', 'Grenada', 'Guatemala', 'Guinea', 'Guinea-Bissau', 'Guyana', 'Haiti', 'Holy See', 'Honduras', 'Hungary', 'Iceland', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Israel', 'Jamaica', 'Jordan', 'Kazakhstan', 'Kenya', 'Korea, South', 'Kosovo', 'Kuwait', 'Kyrgyzstan', 'Laos', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'MS Zaandam', 'Madagascar', 'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Mauritania', 'Mauritius', 'Moldova', 'Monaco', 'Mongolia', 'Montenegro', 'Morocco', 'Mozambique', 'Namibia', 'Nepal', 'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'North Macedonia', 'Norway', 'Oman', 'Panama', 'Papua New Guinea', 'Paraguay', 'Philippines', 'Poland', 'Portugal', 'Qatar', 'Romania', 'Rwanda', 'Saint Kitts and Nevis', 'Saint Lucia', 'Saint Vincent and the Grenadines', 'San Marino', 'Sao Tome and Principe', 'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles', 'Sierra Leone', 'Singapore', 'Slovakia', 'Slovenia', 'Somalia', 'South Africa', 'South Sudan', 'Sri Lanka', 'Sudan', 'Suriname', 'Switzerland', 'Syria', 'Taiwan', 'Tajikistan', 'Tanzania', 'Thailand', 'Timor-Leste', 'Togo', 'Trinidad and Tobago', 'Tunisia', 'Turkey', 'Uganda', 'United Arab Emirates', 'Uruguay', 'Uzbekistan', 'Venezuela', 'Vietnam', 'West Bank and Gaza', 'Western Sahara', 'Yemen', 'Zambia', 'Zimbabwe']
 
 for country in countries:
+    date = "06-27-2020" # change daily
     if country == "Taiwan*":
         country = "Taiwan"
     fileout = open(country + ".html", "w")
@@ -15,7 +16,7 @@ for country in countries:
         <script src="allcountrydata.js"></script> <!--change daily-->
 
         <script>
-            currentdate = "06-27-2020"; // change daily
+            currentdate = "''' + date + '''"; // change daily
             countryname = "''' + country + '''*";
         </script>
 
@@ -409,7 +410,8 @@ for country in countries:
                         datasets: [{
                             label: 'Total Cases',
                             data: cases,
-                            fill: false,
+                            fill: "origin",
+                            backgroundColor: "#ff9d0044",
                             borderColor: "#ff9d00",
                             lineTension: 0.1
                         }]
@@ -423,7 +425,12 @@ for country in countries:
                             text: 'Total Cases'
                         },
                         "scales":{
-                            "xAxes":[{"ticks":{"beginAtZero":true}}]
+                            "xAxes":[{
+                                "ticks":{
+                                    beginAtZero:true,
+                                    maxTicksLimit: 20
+                                }
+                            }]
                         },
                         tooltips: {
                             callbacks: {
@@ -459,7 +466,8 @@ for country in countries:
                         datasets: [{
                             label: 'Total Dead',
                             data: deaths,
-                            fill: false,
+                            fill: "origin",
+                            backgroundColor: "#f6516444",
                             borderColor: "#f65164",
                             lineTension: 0.1
                         }]
@@ -473,7 +481,12 @@ for country in countries:
                             text: 'Total Dead'
                         },
                         "scales":{
-                            "xAxes":[{"ticks":{"beginAtZero":true}}]
+                            "xAxes":[{
+                                "ticks":{
+                                    beginAtZero:true,
+                                    maxTicksLimit: 20
+                                }
+                            }]
                         },
                         tooltips: {
                             callbacks: {
@@ -519,7 +532,8 @@ for country in countries:
                         datasets: [{
                             label: 'Daily Cases',
                             data: dailycases,
-                            fill: false,
+                            fill: "origin",
+                            backgroundColor: "#ff9d0044",
                             borderColor: "#ff9d00",
                             lineTension: 0.1
                         }]
@@ -533,7 +547,12 @@ for country in countries:
                             text: 'Daily Cases'
                         },
                         "scales":{
-                            "xAxes":[{"ticks":{"beginAtZero":true}}]
+                            "xAxes":[{
+                                "ticks":{
+                                    beginAtZero:true,
+                                    maxTicksLimit: 20
+                                }
+                            }]
                         },
                         tooltips: {
                             callbacks: {
@@ -576,7 +595,8 @@ for country in countries:
                         datasets: [{
                             label: 'Daily Deaths',
                             data: dailydeaths,
-                            fill: false,
+                            fill: "origin",
+                            backgroundColor: "#f6516444",
                             borderColor: "#f65164",
                             lineTension: 0.1
                         }]
@@ -590,7 +610,12 @@ for country in countries:
                             text: 'Daily Deaths'
                         },
                         "scales":{
-                            "xAxes":[{"ticks":{"beginAtZero":true}}]
+                            "xAxes":[{
+                                "ticks":{
+                                    beginAtZero:true,
+                                    maxTicksLimit: 20
+                                }
+                            }]
                         },
                         tooltips: {
                             callbacks: {
@@ -603,16 +628,6 @@ for country in countries:
                 });
             </script>
         </div>
-
-        <!--
-<div class="row">
-<div class="col s12 m6 l6 center">
-<div>
-<canvas id="chartjs-2"></canvas>
-</div>
-</div>
-</div>
--->
 
         <div class="row">
             <div class="col l3">
@@ -979,7 +994,7 @@ for country in countries:
         <script src="allcountrydata.js"></script> <!--change daily-->
 
         <script>
-            currentdate = "06-27-2020"; // change daily
+            currentdate = "''' + date + '''"; // change daily
             countryname = "''' + country + '''";
         </script>
 
@@ -1376,7 +1391,8 @@ for country in countries:
                         datasets: [{
                             label: 'Total Cases',
                             data: cases,
-                            fill: false,
+                            fill: "origin",
+                            backgroundColor: "#ff9d0044",
                             borderColor: "#ff9d00",
                             lineTension: 0.1
                         }]
@@ -1390,7 +1406,12 @@ for country in countries:
                             text: 'Total Cases'
                         },
                         "scales":{
-                            "xAxes":[{"ticks":{"beginAtZero":true}}]
+                            "xAxes":[{
+                                "ticks":{
+                                    beginAtZero:true,
+                                    maxTicksLimit: 20
+                                }
+                            }]
                         },
                         tooltips: {
                             callbacks: {
@@ -1426,7 +1447,8 @@ for country in countries:
                         datasets: [{
                             label: 'Total Dead',
                             data: deaths,
-                            fill: false,
+                            fill: "origin",
+                            backgroundColor: "#f6516444",
                             borderColor: "#f65164",
                             lineTension: 0.1
                         }]
@@ -1440,7 +1462,12 @@ for country in countries:
                             text: 'Total Dead'
                         },
                         "scales":{
-                            "xAxes":[{"ticks":{"beginAtZero":true}}]
+                            "xAxes":[{
+                                "ticks":{
+                                    beginAtZero:true,
+                                    maxTicksLimit: 20
+                                }
+                            }]
                         },
                         tooltips: {
                             callbacks: {
@@ -1486,7 +1513,8 @@ for country in countries:
                         datasets: [{
                             label: 'Daily Cases',
                             data: dailycases,
-                            fill: false,
+                            fill: "origin",
+                            backgroundColor: "#ff9d0044",
                             borderColor: "#ff9d00",
                             lineTension: 0.1
                         }]
@@ -1500,7 +1528,12 @@ for country in countries:
                             text: 'Daily Cases'
                         },
                         "scales":{
-                            "xAxes":[{"ticks":{"beginAtZero":true}}]
+                            "xAxes":[{
+                                "ticks":{
+                                    beginAtZero:true,
+                                    maxTicksLimit: 20
+                                }
+                            }]
                         },
                         tooltips: {
                             callbacks: {
@@ -1543,7 +1576,8 @@ for country in countries:
                         datasets: [{
                             label: 'Daily Deaths',
                             data: dailydeaths,
-                            fill: false,
+                            fill: "origin",
+                            backgroundColor: "#f6516444",
                             borderColor: "#f65164",
                             lineTension: 0.1
                         }]
@@ -1557,7 +1591,12 @@ for country in countries:
                             text: 'Daily Deaths'
                         },
                         "scales":{
-                            "xAxes":[{"ticks":{"beginAtZero":true}}]
+                            "xAxes":[{
+                                "ticks":{
+                                    beginAtZero:true,
+                                    maxTicksLimit: 20
+                                }
+                            }]
                         },
                         tooltips: {
                             callbacks: {
@@ -1570,16 +1609,6 @@ for country in countries:
                 });
             </script>
         </div>
-
-        <!--
-<div class="row">
-<div class="col s12 m6 l6 center">
-<div>
-<canvas id="chartjs-2"></canvas>
-</div>
-</div>
-</div>
--->
 
         <div class="row">
             <div class="col l3">

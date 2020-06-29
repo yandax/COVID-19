@@ -30,7 +30,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.20/js/jquery.dataTables.js" integrity="sha256-Q0cguHZIfvl0zzk68PF1dGCY3pW2y6xvHx4GHLQ/lg4=" crossorigin="anonymous"></script>
-        
+
         <style>
             nav ul li:hover {
                 background-color: orange;
@@ -102,7 +102,7 @@
                 display: inline-block;
                 top: 15px;
             }
-            
+
             div.material-table {
                 padding: 0;
             }
@@ -345,7 +345,7 @@
                 z-index: 21;
                 color: rgba(0, 0, 0, 0.6);
             }
-            
+
         </style>
 
     </head>
@@ -676,7 +676,7 @@
 
             mylist = document.getElementById("mylist");
 
-            myhtml = "<ul class=\"collection\">"
+            myhtml = "<ul class=\"collection\">";
             for(i=0; i<5; i++) {
                 myhtml += "<li class=\"collection-item avatar\">";
                 if(data[i]["cname"] == "Taiwan*") {
@@ -771,13 +771,18 @@
 
         function addmarkers() {
             for(i=0; i<data.length; i++) {
+                if(data[i]['cname'] == "Taiwan*") {
+                    flagname = "Taiwan";
+                }else{
+                    flagname = data[i]['cname'];
+                }
                 var circle = L.circle([data[i]['lat'], data[i]['lon']], {
                     color: '#ff003388',
                     fillColor: '#ff0033',
                     fillOpacity: 0.1,
                     radius: Math.sqrt(data[i]['conf']) * 1200 * Math.abs(Math.cos(data[i]['lat']*Math.PI/180)) // Mercator scaling
                 }).addTo(map);
-                circle.bindPopup("<center><td><img src=\"w2560/" + data[i]['cname'] + ".png\" width='50px'></td></center><center><h6 style='color: white; font-weight: bold;'>" + data[i]['name'] + "</h6></center><p style='display: inline; color: white;'>Confirmed:&nbsp;&nbsp;&nbsp;&nbsp;</p><p class='globalcases'>" + data[i]['conf'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</p><br><p style='display: inline; color: white;'>Deceased:&nbsp;&nbsp;&nbsp;&nbsp;</p><p class='globaldeaths'>" + data[i]['dead'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</p><br><p style='display: inline; color: white;'>Active:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p><p class='globalactive'>" + data[i]['active'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</p><br><p style='display: inline; color: white;'>Recovered:&nbsp;&nbsp;&nbsp;</p><p class='globalrecovered'>" + data[i]['recv'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</p>");
+                circle.bindPopup("<center><td><img src=\"w2560/" + flagname + ".png\" width='50px'></td></center><center><h6 style='color: white; font-weight: bold;'>" + data[i]['name'] + "</h6></center><p style='display: inline; color: white;'>Confirmed:&nbsp;&nbsp;&nbsp;&nbsp;</p><p class='globalcases'>" + data[i]['conf'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</p><br><p style='display: inline; color: white;'>Deceased:&nbsp;&nbsp;&nbsp;&nbsp;</p><p class='globaldeaths'>" + data[i]['dead'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</p><br><p style='display: inline; color: white;'>Active:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p><p class='globalactive'>" + data[i]['active'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</p><br><p style='display: inline; color: white;'>Recovered:&nbsp;&nbsp;&nbsp;</p><p class='globalrecovered'>" + data[i]['recv'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</p>");
                 circle.on('mouseover', function (e) {
                     this.openPopup();
                 });

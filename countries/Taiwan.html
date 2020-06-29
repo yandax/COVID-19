@@ -401,7 +401,8 @@
                         datasets: [{
                             label: 'Total Cases',
                             data: cases,
-                            fill: false,
+                            fill: "origin",
+                            backgroundColor: "#ff9d0044",
                             borderColor: "#ff9d00",
                             lineTension: 0.1
                         }]
@@ -415,7 +416,12 @@
                             text: 'Total Cases'
                         },
                         "scales":{
-                            "xAxes":[{"ticks":{"beginAtZero":true}}]
+                            "xAxes":[{
+                                "ticks":{
+                                    beginAtZero:true,
+                                    maxTicksLimit: 20
+                                }
+                            }]
                         },
                         tooltips: {
                             callbacks: {
@@ -451,7 +457,8 @@
                         datasets: [{
                             label: 'Total Dead',
                             data: deaths,
-                            fill: false,
+                            fill: "origin",
+                            backgroundColor: "#f6516444",
                             borderColor: "#f65164",
                             lineTension: 0.1
                         }]
@@ -465,7 +472,12 @@
                             text: 'Total Dead'
                         },
                         "scales":{
-                            "xAxes":[{"ticks":{"beginAtZero":true}}]
+                            "xAxes":[{
+                                "ticks":{
+                                    beginAtZero:true,
+                                    maxTicksLimit: 20
+                                }
+                            }]
                         },
                         tooltips: {
                             callbacks: {
@@ -511,7 +523,8 @@
                         datasets: [{
                             label: 'Daily Cases',
                             data: dailycases,
-                            fill: false,
+                            fill: "origin",
+                            backgroundColor: "#ff9d0044",
                             borderColor: "#ff9d00",
                             lineTension: 0.1
                         }]
@@ -525,7 +538,12 @@
                             text: 'Daily Cases'
                         },
                         "scales":{
-                            "xAxes":[{"ticks":{"beginAtZero":true}}]
+                            "xAxes":[{
+                                "ticks":{
+                                    beginAtZero:true,
+                                    maxTicksLimit: 20
+                                }
+                            }]
                         },
                         tooltips: {
                             callbacks: {
@@ -568,7 +586,8 @@
                         datasets: [{
                             label: 'Daily Deaths',
                             data: dailydeaths,
-                            fill: false,
+                            fill: "origin",
+                            backgroundColor: "#f6516444",
                             borderColor: "#f65164",
                             lineTension: 0.1
                         }]
@@ -582,7 +601,12 @@
                             text: 'Daily Deaths'
                         },
                         "scales":{
-                            "xAxes":[{"ticks":{"beginAtZero":true}}]
+                            "xAxes":[{
+                                "ticks":{
+                                    beginAtZero:true,
+                                    maxTicksLimit: 20
+                                }
+                            }]
                         },
                         tooltips: {
                             callbacks: {
@@ -595,16 +619,6 @@
                 });
             </script>
         </div>
-
-        <!--
-<div class="row">
-<div class="col s12 m6 l6 center">
-<div>
-<canvas id="chartjs-2"></canvas>
-</div>
-</div>
-</div>
--->
 
         <div class="row">
             <div class="col l3">
