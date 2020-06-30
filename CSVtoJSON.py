@@ -74,7 +74,10 @@ for i in range(len(csv.index)):
     conf = csv["Confirmed"][i]
     dead = csv["Deaths"][i]
     recv = csv["Recovered"][i]
-    active = csv["Active"][i]
+    if math.isnan(csv["Active"][i]):
+        active = 0
+    else:
+        active = csv["Active"][i]
     # active = "N/A"
     name = str(csv["Combined_Key"][i])
     # if pname != "":
@@ -171,7 +174,7 @@ fileout = open("./data/"+today+"-country.js", "w")
 fileout.write("data = " + str(countrylist))
 fileout.close()
 
-sys.exit()
+# sys.exit()
 
 for days in range(1,200):
     date = str(datetime.today() - timedelta(days=days))
@@ -215,7 +218,10 @@ for days in range(1,200):
         conf = csv["Confirmed"][i]
         dead = csv["Deaths"][i]
         recv = csv["Recovered"][i]
-        active = csv["Active"][i]
+        if math.isnan(csv["Active"][i]):
+            active = 0
+        else:
+            active = csv["Active"][i]
         # active = "N/A"
         name = str(csv["Combined_Key"][i])
         # if pname != "":
