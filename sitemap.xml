@@ -1,0 +1,969 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+<url>
+  <loc>https://yandax.github.io/COVID-19/</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/timeline.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/index.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/US.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Italy.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Brazil.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Russia.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Mexico.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Japan.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Canada.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Colombia.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Peru.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Spain.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/India.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/United Kingdom.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/China.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Chile.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Netherlands.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Australia.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Pakistan.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Germany.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Sweden.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Ukraine.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Denmark.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/France.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Afghanistan.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Albania.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Algeria.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Andorra.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Angola.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Antigua and Barbuda.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Argentina.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Armenia.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Austria.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Azerbaijan.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Bahamas.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Bahrain.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Bangladesh.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Barbados.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Belarus.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Belgium.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Belize.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Benin.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Bhutan.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Bolivia.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Bosnia and Herzegovina.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Botswana.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Brunei.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Bulgaria.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Burkina Faso.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Burma.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Burundi.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Cabo Verde.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Cambodia.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Cameroon.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Central African Republic.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Chad.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Comoros.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Congo (Brazzaville).html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Congo (Kinshasa).html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Costa Rica.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Cote d'Ivoire.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Croatia.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Cuba.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Cyprus.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Czechia.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Diamond Princess.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Djibouti.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Dominica.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Dominican Republic.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Ecuador.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Egypt.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/El Salvador.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Equatorial Guinea.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Eritrea.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Estonia.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Eswatini.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Ethiopia.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Fiji.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Finland.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Gabon.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Gambia.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Georgia.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Ghana.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Greece.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Grenada.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Guatemala.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Guinea.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Guinea-Bissau.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Guyana.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Haiti.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Holy See.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Honduras.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Hungary.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Iceland.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Indonesia.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Iran.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Iraq.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Ireland.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Israel.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Jamaica.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Jordan.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Kazakhstan.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Kenya.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Korea, South.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Kosovo.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Kuwait.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Kyrgyzstan.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Laos.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Latvia.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Lebanon.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Lesotho.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Liberia.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Libya.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Liechtenstein.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Lithuania.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Luxembourg.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/MS Zaandam.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Madagascar.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Malawi.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Malaysia.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Maldives.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Mali.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Malta.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Mauritania.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Mauritius.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Moldova.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Monaco.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Mongolia.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Montenegro.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Morocco.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Mozambique.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Namibia.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Nepal.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/New Zealand.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Nicaragua.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Niger.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Nigeria.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/North Macedonia.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Norway.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Oman.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Panama.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Papua New Guinea.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Paraguay.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Philippines.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Poland.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Portugal.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Qatar.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Romania.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Rwanda.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Saint Kitts and Nevis.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Saint Lucia.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Saint Vincent and the Grenadines.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/San Marino.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Sao Tome and Principe.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Saudi Arabia.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Senegal.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Serbia.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Seychelles.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Sierra Leone.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Singapore.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Slovakia.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Slovenia.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Somalia.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/South Africa.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/South Sudan.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Sri Lanka.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Sudan.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Suriname.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Switzerland.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Syria.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Taiwan.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Tajikistan.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Tanzania.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Thailand.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Timor-Leste.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Togo.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Trinidad and Tobago.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Tunisia.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Turkey.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Uganda.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/United Arab Emirates.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Uruguay.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Uzbekistan.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Venezuela.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Vietnam.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/West Bank and Gaza.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Western Sahara.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Yemen.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Zambia.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://yandax.github.io/COVID-19/countries/Zimbabwe.html</loc>
+  <lastmod>2020-06-30T17:05:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+
+</urlset>
