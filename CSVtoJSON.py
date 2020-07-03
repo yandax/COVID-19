@@ -38,6 +38,7 @@ alldata = {}
 
 date = str(datetime.today() - timedelta(days=1))
 today = date[5:7] + "-" + date[8:10] + "-" + date[0:4]
+print(today)
 
 url = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/" + today + ".csv"
 content = requests.get(url).content
