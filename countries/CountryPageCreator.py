@@ -20,6 +20,16 @@ for country in countries:
             countryname = "Taiwan*";
         </script>
 
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171520459-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+        
+            gtag('config', 'UA-171520459-1');
+        </script>
+
         <!-- Compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
@@ -1229,6 +1239,16 @@ for country in countries:
         <script>
             currentdate = "''' + date + '''"; // change daily
             countryname = "''' + country + '''";
+        </script>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171520459-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+        
+            gtag('config', 'UA-171520459-1');
         </script>
 
         <!-- Compiled and minified CSS -->
