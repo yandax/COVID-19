@@ -11,15 +11,6 @@ for country in countries:
 
     <head>
 
-        <title>COVID-19 Dashboard</title>
-
-        <script src="allcountrydata.js"></script> <!--change daily-->
-
-        <script>
-            currentdate = "''' + date + '''"; // change daily
-            countryname = "Taiwan*";
-        </script>
-
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171520459-1"></script>
         <script>
@@ -28,6 +19,15 @@ for country in countries:
             gtag('js', new Date());
         
             gtag('config', 'UA-171520459-1');
+        </script>
+
+        <title>COVID-19 Dashboard</title>
+
+        <script src="allcountrydata.js"></script> <!--change daily-->
+
+        <script>
+            currentdate = "''' + date + '''"; // change daily
+            countryname = "Taiwan*";
         </script>
 
         <!-- Compiled and minified CSS -->
@@ -1232,15 +1232,6 @@ for country in countries:
 
     <head>
 
-        <title>COVID-19 Dashboard</title>
-
-        <script src="allcountrydata.js"></script> <!--change daily-->
-
-        <script>
-            currentdate = "''' + date + '''"; // change daily
-            countryname = "''' + country + '''";
-        </script>
-
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171520459-1"></script>
         <script>
@@ -1249,6 +1240,15 @@ for country in countries:
             gtag('js', new Date());
         
             gtag('config', 'UA-171520459-1');
+        </script>
+
+        <title>COVID-19 Dashboard</title>
+
+        <script src="allcountrydata.js"></script> <!--change daily-->
+
+        <script>
+            currentdate = "''' + date + '''"; // change daily
+            countryname = "''' + country + '''";
         </script>
 
         <!-- Compiled and minified CSS -->
