@@ -3,7 +3,8 @@ import sys
 countries = ['US', 'Italy', 'Brazil', 'Russia', 'Mexico', 'Japan', 'Canada', 'Colombia', 'Peru', 'Spain', 'India', 'United Kingdom', 'China', 'Chile', 'Netherlands', 'Australia', 'Pakistan', 'Germany', 'Sweden', 'Ukraine', 'Denmark', 'France', 'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina', 'Armenia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia', 'Bosnia and Herzegovina', 'Botswana', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burma', 'Burundi', 'Cabo Verde', 'Cambodia', 'Cameroon', 'Central African Republic', 'Chad', 'Comoros', 'Congo (Brazzaville)', 'Congo (Kinshasa)', 'Costa Rica', "Cote d'Ivoire", 'Croatia', 'Cuba', 'Cyprus', 'Czechia', 'Diamond Princess', 'Djibouti', 'Dominica', 'Dominican Republic', 'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia', 'Eswatini', 'Ethiopia', 'Fiji', 'Finland', 'Gabon', 'Gambia', 'Georgia', 'Ghana', 'Greece', 'Grenada', 'Guatemala', 'Guinea', 'Guinea-Bissau', 'Guyana', 'Haiti', 'Holy See', 'Honduras', 'Hungary', 'Iceland', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Israel', 'Jamaica', 'Jordan', 'Kazakhstan', 'Kenya', 'Korea, South', 'Kosovo', 'Kuwait', 'Kyrgyzstan', 'Laos', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'MS Zaandam', 'Madagascar', 'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Mauritania', 'Mauritius', 'Moldova', 'Monaco', 'Mongolia', 'Montenegro', 'Morocco', 'Mozambique', 'Namibia', 'Nepal', 'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'North Macedonia', 'Norway', 'Oman', 'Panama', 'Papua New Guinea', 'Paraguay', 'Philippines', 'Poland', 'Portugal', 'Qatar', 'Romania', 'Rwanda', 'Saint Kitts and Nevis', 'Saint Lucia', 'Saint Vincent and the Grenadines', 'San Marino', 'Sao Tome and Principe', 'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles', 'Sierra Leone', 'Singapore', 'Slovakia', 'Slovenia', 'Somalia', 'South Africa', 'South Sudan', 'Sri Lanka', 'Sudan', 'Suriname', 'Switzerland', 'Syria', 'Taiwan', 'Tajikistan', 'Tanzania', 'Thailand', 'Timor-Leste', 'Togo', 'Trinidad and Tobago', 'Tunisia', 'Turkey', 'Uganda', 'United Arab Emirates', 'Uruguay', 'Uzbekistan', 'Venezuela', 'Vietnam', 'West Bank and Gaza', 'Western Sahara', 'Yemen', 'Zambia', 'Zimbabwe']
 
 for country in countries:
-    date = "07-03-2020" # change daily
+    date = "07-04-2020" # change daily
+    date2 = "7/4/20" # change daily
     if country == "Taiwan*":
         country = "Taiwan"
     fileout = open(country + ".html", "w")
@@ -23,12 +24,15 @@ for country in countries:
 
         <title>COVID-19 Dashboard</title>
 
-        <script src="allcountrydata.js"></script> <!--change daily-->
-
+        <script src="../data/''' + date + '''-country.js"></script> <!--change daily-->
+        
         <script>
-            currentdate = "''' + date + '''"; // change daily
+            currentdate = "''' + date2 + '''"; // change daily
             countryname = "Taiwan*";
+            dailydata = data;
         </script>
+        
+        <script src="../timeseries.js"></script>
 
         <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
 
@@ -1203,9 +1207,9 @@ for country in countries:
             globalactive = document.getElementById("globalactive");
 
             total = 0;
-            for(i=0; i<data[currentdate].length; i++){
-                if(data[currentdate][i]["name"] == countryname) {
-                    total += data[currentdate][i]["active"];
+            for(i=0; i<dailydata.length; i++){
+                if(dailydata[i]["name"] == countryname) {
+                    total += dailydata[i]["active"];
                 }
             }
 
@@ -1246,12 +1250,15 @@ for country in countries:
 
         <title>COVID-19 Dashboard</title>
 
-        <script src="allcountrydata.js"></script> <!--change daily-->
-
+        <script src="../data/''' + date + '''-country.js"></script> <!--change daily-->
+        
         <script>
-            currentdate = "''' + date + '''"; // change daily
+            currentdate = "''' + date2 + '''"; // change daily
             countryname = "''' + country + '''";
+            dailydata = data;
         </script>
+        
+        <script src="../timeseries.js"></script>
 
         <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
 
@@ -2426,9 +2433,9 @@ for country in countries:
             globalactive = document.getElementById("globalactive");
 
             total = 0;
-            for(i=0; i<data[currentdate].length; i++){
-                if(data[currentdate][i]["name"] == countryname) {
-                    total += data[currentdate][i]["active"];
+            for(i=0; i<dailydata.length; i++){
+                if(dailydata[i]["name"] == countryname) {
+                    total += dailydata[i]["active"];
                 }
             }
 

@@ -14,11 +14,12 @@
 
         <title>COVID-19 Dashboard</title>
 
-        <script src="./data/07-03-2020-country.js" id="countrydata"></script> <!--change daily-->
+        <script src="timeseries.js" id="countrydata"></script> <!--change daily-->
 
         <script>
-            currentdate = "07-03-2020"; // change daily
-            nextdate = "2020-07-04"; // change daily
+            date = "7/4/20";
+            currentdate = "2020-07-04"
+            nextdate = "2020-07-05"
         </script>
 
         <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
@@ -95,11 +96,6 @@
             }
             .globaldeaths {
                 color: #f65164;
-                display: inline;
-                font-weight: bold;
-            }
-            .globalactive {
-                color: #ff9d00;
                 display: inline;
                 font-weight: bold;
             }
@@ -451,7 +447,7 @@
                         var dateSlider = document.getElementById('slider-date');
                         noUiSlider.create(dateSlider, {
                             range: {
-                                min: timestamp('2020-03-02'),
+                                min: timestamp('2020-01-23'),
                                 max: timestamp(nextdate)
                             },
                             connect: [true, false],
@@ -506,9 +502,6 @@
                         <br>
                         <span class="card-title center"><h4><b>Total Deceased</b></h4></span>
                         <p class="globaldeaths" style="text-align: center;" id="globaldeaths"></p>
-                        <br>
-                        <span class="card-title center"><h4><b>Total Active</b></h4></span>
-                        <p class="globalactive" style="text-align: center;" id="globalactive"></p>
                         <br>
                         <span class="card-title center"><h4><b>Total Recovered</b></h4></span>
                         <p class="globalrecovered" style="text-align: center;" id="globalrecovered"></p>
@@ -783,13 +776,13 @@
             myhtml = "<ul class=\"collection\" id=\"top5list\">"
             for(i=0; i<5; i++) {
                 myhtml += "<li class=\"collection-item avatar\">";
-                if(data[i]["name"] == "Taiwan*") {
+                if(data[date][i]["name"] == "Taiwan*") {
                     myhtml += "<img src=\"w2560/Taiwan.png\" class='flag'>";
                 }else {
-                    myhtml += "<img src=\"w2560/" + data[i]['name'] + ".png\" class='flag'>";
+                    myhtml += "<img src=\"w2560/" + data[date][i]['name'] + ".png\" class='flag'>";
                 }
-                myhtml += "<b><a href='./countries/" + data[i]["name"] + ".html' target='_blank' style='color: black;'>" + data[i]["name"] + "</a></b><br>";
-                myhtml += data[i]["conf"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</li>";
+                myhtml += "<b><a href='./countries/" + data[date][i]["name"] + ".html' target='_blank' style='color: black;'>" + data[date][i]["name"] + "</a></b><br>";
+                myhtml += data[date][i]["conf"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</li>";
             }
             myhtml += "</ul>";
 
@@ -801,16 +794,16 @@
             fulllist = document.getElementById("fulllist");
 
             myhtml = "";
-            for(i=0; i<data.length; i++) {
+            for(i=0; i<data[date].length; i++) {
                 myhtml += "<tr><td></td>";
-                if(data[i]["name"] == "Taiwan*") {
+                if(data[date][i]["name"] == "Taiwan*") {
                     myhtml += "<td><a href='./countries/Taiwan.html' target='_blank'>Taiwan</a></td>";
                 }else {
-                    myhtml += "<td><a href='./countries/" + data[i]["name"] + ".html' target='_blank'>" + data[i]["name"] + "</a></td>";
+                    myhtml += "<td><a href='./countries/" + data[date][i]["name"] + ".html' target='_blank'>" + data[date][i]["name"] + "</a></td>";
                 }
-                myhtml += "<td>" + data[i]["conf"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</td>";
-                myhtml += "<td>" + data[i]["dead"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</td>";
-                myhtml += "<td>" + data[i]["recv"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</td></tr>";
+                myhtml += "<td>" + data[date][i]["conf"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</td>";
+                myhtml += "<td>" + data[date][i]["dead"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</td>";
+                myhtml += "<td>" + data[date][i]["recv"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</td></tr>";
             }
 
             fulllist.innerHTML += myhtml;
@@ -822,8 +815,8 @@
             globalcases = document.getElementById("globalcases");
 
             total = 0;
-            for(i=0; i<data.length; i++){
-                total += data[i]["conf"];
+            for(i=0; i<data[date].length; i++){
+                total += data[date][i]["conf"];
             }
 
             globalcases.innerHTML = "<h3><b>" + total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</b></h3>";
@@ -831,30 +824,17 @@
             globaldeaths = document.getElementById("globaldeaths");
 
             total = 0;
-            for(i=0; i<data.length; i++){
-                total += data[i]["dead"];
+            for(i=0; i<data[date].length; i++){
+                total += data[date][i]["dead"];
             }
 
             globaldeaths.innerHTML = "<h3><b>" + total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</b></h3>";
 
-            globalactive = document.getElementById("globalactive");
-
-            total = 0;
-            for(i=0; i<data.length; i++){
-                total += data[i]["active"];
-            }
-
-            if(typeof total == "string") {
-                total = "N/A"
-            }
-
-            globalactive.innerHTML = "<h3><b>" + total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</b></h3>";
-
             globalrecovered = document.getElementById("globalrecovered");
 
             total = 0;
-            for(i=0; i<data.length; i++){
-                total += data[i]["recv"];
+            for(i=0; i<data[date].length; i++){
+                total += data[date][i]["recv"];
             }
 
             globalrecovered.innerHTML = "<h3><b>" + total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</b></h3>";
@@ -876,24 +856,22 @@
         var markerGroup = L.layerGroup().addTo(map);
 
         function addmarkers() {
-            for(i=0; i<data.length; i++) {
-                if(typeof data[i]['active'] == "string") {
-                    active = "N/A";
-                }else {
-                    active = data[i]['active'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            for(i=0; i<data[date].length; i++) {
+                if(data[date][i]['conf'] == 0) {
+                    continue;
                 }
-                if(data[i]['name'] == "Taiwan*") {
+                if(data[date][i]['name'] == "Taiwan*") {
                     flagname = "Taiwan";
                 }else {
-                    flagname = data[i]['name']
+                    flagname = data[date][i]['name']
                 }
-                var circle = L.circle([data[i]['lat'], data[i]['lon']], {
+                var circle = L.circle([data[date][i]['lat'], data[date][i]['long']], {
                     "color": '#ff0033',
                     "fillColor": '#ff0033',
                     "fillOpacity": 0.5,
-                    "radius": Math.sqrt(data[i]['conf']) * 1200 * Math.abs(Math.cos(data[i]['lat']*Math.PI/180)) // Mercator scaling
+                    "radius": Math.sqrt(data[date][i]['conf']) * 1200 * Math.abs(Math.cos(data[date][i]['lat']*Math.PI/180)) // Mercator scaling
                 }).addTo(markerGroup);
-                circle.bindPopup("<center><td><img src=\"w2560/" + flagname + ".png\" width='50px'></td></center><center><h6 style='color: white; font-weight: bold;'>" + data[i]['name'] + "</h6></center><p style='display: inline; color: white;'>Confirmed:&nbsp;&nbsp;&nbsp;&nbsp;</p><p class='globalcases'>" + data[i]['conf'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</p><br><p style='display: inline; color: white;'>Deceased:&nbsp;&nbsp;&nbsp;&nbsp;</p><p class='globaldeaths'>" + data[i]['dead'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</p><br><p style='display: inline; color: white;'>Active:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p><p class='globalactive'>" + active + "</p><br><p style='display: inline; color: white;'>Recovered:&nbsp;&nbsp;&nbsp;</p><p class='globalrecovered'>" + data[i]['recv'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</p>");
+                circle.bindPopup("<center><td><img src=\"w2560/" + flagname + ".png\" width='50px'></td></center><center><h6 style='color: white; font-weight: bold;'>" + data[date][i]['name'] + "</h6></center><p style='display: inline; color: white;'>Confirmed:&nbsp;&nbsp;&nbsp;&nbsp;</p><p class='globalcases'>" + data[date][i]['conf'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</p><br><p style='display: inline; color: white;'>Deceased:&nbsp;&nbsp;&nbsp;&nbsp;</p><p class='globaldeaths'>" + data[date][i]['dead'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</p><br><p style='display: inline; color: white;'>Recovered:&nbsp;&nbsp;&nbsp;</p><p class='globalrecovered'>" + data[date][i]['recv'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</p>");
                 circle.on('mouseover', function (e) {
                     this.openPopup();
                 });
@@ -909,45 +887,31 @@
             var d = new Date(date),
                 month = '' + (d.getMonth() + 1),
                 day = '' + d.getDate(),
-                year = d.getFullYear();
+                year = "20"
 
-            if (month.length < 2) 
-                month = '0' + month;
-            if (day.length < 2) 
-                day = '0' + day;
-
-            return [month, day, year].join('-');
+            return [month, day, year].join('/');
         }
 
         dateSlider.noUiSlider.on('set', function (values, handle) {
             if (handle === 0) {
                 console.log(reformatDate(new Date(+values[handle])));
-                (elem=document.getElementById("countrydata")).parentNode.removeChild(elem)
-                var head = document.getElementsByTagName('head')[0];
-                script = document.createElement('script');
-                script.src = "./data/" + reformatDate(new Date(+values[handle])) + "-country.js";
-                script.type = "text/javascript";
-                script.id = "countrydata";
-                head.appendChild(script);
-                script.onload = function() {
-                    document.getElementById("mylist").innerHTML = "<h5 style='text-align: center;'>Top 5 Confirmed</h5><br>";
-                    makelist();
-                    global();
-                    markerGroup.clearLayers();
-                    addmarkers();
-                    var table = $('#datatable').DataTable();
-                    table.clear();
-                    for(i=0; i<data.length; i++) {
-                        if(data[i]["name"] == "Taiwan*") {
-                            rowname = "Taiwan";
-                        }else{
-                            rowname = data[i]["name"];
-                        }
-                        table.row.add(["", rowname, data[i]["conf"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","), data[i]["dead"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","), data[i]["recv"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")]).draw();
+                date = reformatDate(new Date(+values[handle]));
+                document.getElementById("mylist").innerHTML = "<h5 style='text-align: center;'>Top 5 Confirmed</h5><br>";
+                makelist();
+                global();
+                markerGroup.clearLayers();
+                addmarkers();
+                var table = $('#datatable').DataTable();
+                table.clear();
+                for(i=0; i<data[date].length; i++) {
+                    if(data[date][i]["name"] == "Taiwan*") {
+                        rowname = "Taiwan";
+                    }else{
+                        rowname = data[date][i]["name"];
                     }
-                    table.columns.adjust().draw();
-                };
-
+                    table.row.add(["", rowname, data[date][i]["conf"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","), data[date][i]["dead"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","), data[date][i]["recv"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")]).draw();
+                }
+                table.columns.adjust().draw();
             }
         });
 
@@ -962,7 +926,7 @@
                     if(reformatDate(new Date(+value)) != currentdate && status == 1) {
                         myLoop();
                     }
-                }, 500)
+                }, 300)
             }
         }
 

@@ -14,12 +14,15 @@
 
         <title>COVID-19 Dashboard</title>
 
-        <script src="allcountrydata.js"></script> <!--change daily-->
-
+        <script src="../data/07-04-2020-country.js"></script> <!--change daily-->
+        
         <script>
-            currentdate = "07-03-2020"; // change daily
+            currentdate = "7/4/20"; // change daily
             countryname = "United Kingdom";
+            dailydata = data;
         </script>
+        
+        <script src="../timeseries.js"></script>
 
         <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
 
@@ -1194,9 +1197,9 @@
             globalactive = document.getElementById("globalactive");
 
             total = 0;
-            for(i=0; i<data[currentdate].length; i++){
-                if(data[currentdate][i]["name"] == countryname) {
-                    total += data[currentdate][i]["active"];
+            for(i=0; i<dailydata.length; i++){
+                if(dailydata[i]["name"] == countryname) {
+                    total += dailydata[i]["active"];
                 }
             }
 
